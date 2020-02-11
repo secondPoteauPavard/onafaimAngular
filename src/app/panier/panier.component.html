@@ -1,0 +1,18 @@
+<h2>Mon Panier</h2>
+
+<div class="form-group" ]>
+  <table class="form-group">
+    <tr>
+      <th>Libelle</th>
+      <th>Quantité</th>
+      <th>Prix tot</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let p of panierService.ligneCommande, let i = index">
+      <td>{{p.idProduit}}</td>
+      <td>{{p.quantite}}</td>
+      <td>prix total = PU*Q</td>
+      <td><button class="btn btn-danger" (click)="supprimer(i)">retirer</button></td>
+    </tr>
+  </table>
+</div>
