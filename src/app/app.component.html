@@ -2,10 +2,17 @@
   mon super header avec une belle photo
 </header>
 <nav>
+  <ul id="menu">
+    <li><a [routerLink]="['/home']" routerLinkActive="active">Accueil</a></li>
+    <li><a [routerLink]="['/sandwich']" routerLinkActive="active">Sandwich</a></li>
+    <li><a [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
+    <li><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
 
+  </ul>
 </nav>
 
-<app-home></app-home>
+<router-outlet></router-outlet>
+
 <footer>
   mon footer
 </footer>

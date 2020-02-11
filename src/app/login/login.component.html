@@ -1,0 +1,12 @@
+<div>
+  <div class="alert alert-danger" *ngIf="erreur">Erreur d'authentification</div>
+  <div class="form-group">
+    login: <input class="form-control" [(ngModel)]="user.login">
+  </div>
+  <div class="form-group">
+    password: <input class="form-control" [(ngModel)]="user.password">
+  </div>
+  <div>
+    <button class="btn btn-outline-primary" (click)="send()">Envoyer</button>
+  </div>
+</div>
