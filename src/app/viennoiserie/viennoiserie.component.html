@@ -1,0 +1,26 @@
+<div>
+  <h2>Liste des viennoiseries</h2>
+<!--  <a href="" (click)="">ajouter produit</a>-->
+    <div class="row">
+      <div *ngFor="let v of produits">
+        <div class="crew col-3">
+          {{v.libelle}}
+          {{v.photo}}
+          {{v.description}}
+          <table>
+              <tr>
+                <td>{{v.taille}}</td>
+                <td>{{v.prix}}</td>
+                <td><a href="" class="btn btn-outline-success"> + </a></td>
+<!--                <td><button class="btn-outline-primary" (click)="">editer</button></td>-->
+<!--                <td><button class="btn-outline-primary" (click)="delete()">supprimer</button></td>-->
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+

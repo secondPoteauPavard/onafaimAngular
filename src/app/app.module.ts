@@ -9,8 +9,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PanierComponent } from './panier/panier.component';
+import { ViennoiserieComponent } from './viennoiserie/viennoiserie.component';
 import { LogoutComponent } from './logout/logout.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { BoissonComponent } from './boisson/boisson.component';
+import { SandwichComponent } from './sandwich/sandwich.component';
+import { GateauComponent } from './gateau/gateau.component';
+
 
 @NgModule({
   declarations: [
@@ -18,8 +23,13 @@ import { InscriptionComponent } from './inscription/inscription.component';
     HomeComponent,
     LoginComponent,
     PanierComponent,
+    ViennoiserieComponent,
     LogoutComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    BoissonComponent,
+    SandwichComponent,
+    GateauComponent
+
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
