@@ -9,6 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ViennoiserieComponent } from './viennoiserie/viennoiserie.component';
+import { LogoutComponent } from './logout/logout.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { ViennoiserieComponent } from './viennoiserie/viennoiserie.component';
     HomeComponent,
     LoginComponent,
     ViennoiserieComponent
+    LogoutComponent,
+    InscriptionComponent
+
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
