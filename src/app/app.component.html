@@ -7,7 +7,7 @@
     <li><a [routerLink]="['/sandwich']" routerLinkActive="active">Sandwich</a></li>
     <li><a [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
     <li><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
-
+    <app-logout *ngIf="token"></app-logout>
   </ul>
 </nav>
 
