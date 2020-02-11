@@ -10,14 +10,22 @@ import {PanierService} from '../services/panier.service';
 export class PanierComponent implements OnInit {
 
 
-  constructor(private panierService: PanierService) {
-    this.panierService = panierService;
+  constructor(private _panierService: PanierService) {
+    this._panierService = _panierService;
   }
 
   ngOnInit(): void {
   }
 
+  get panierService(): PanierService {
+    return this._panierService;
+  }
+
+  set panierService(value: PanierService) {
+    this._panierService = value;
+  }
+
   public supprimer(index: number) {
-    this.panierService.delete(index);
+    this._panierService.delete(index);
   }
 }

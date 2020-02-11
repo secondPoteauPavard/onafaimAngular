@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {LigneCommande} from '../model/ligne-commande';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,9 @@ import {LigneCommande} from '../model/ligne-commande';
 export class PanierService {
 
   private _ligneCommande: LigneCommande[] = [new LigneCommande()];
+  private url: string = 'http://localhost:8080/onafaim/panier'
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   get ligneCommande(): LigneCommande[] {
     return this._ligneCommande;
