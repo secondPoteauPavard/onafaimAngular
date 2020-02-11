@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class LoginService {
 
-  private url: string = 'http://localhost:8080/onafaim/auth/connexion';
+  private url: string = 'http://localhost:8080/onafaim/rest/login';
 
   constructor(private http: HttpClient) { }
 
