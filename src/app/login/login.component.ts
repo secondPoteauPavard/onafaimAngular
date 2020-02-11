@@ -11,21 +11,38 @@ import {Router} from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  private user: User = new User();
-  private erreur: boolean = false;
+  private _user: User = new User();
+  private _erreur: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) { }
+
+
+  get user(): User {
+    return this._user;
+  }
+
+  set user(value: User) {
+    this._user = value;
+  }
+
+  get erreur(): boolean {
+    return this._erreur;
+  }
+
+  set erreur(value: boolean) {
+    this._erreur = value;
+  }
 
   ngOnInit() {
   }
 
   send() {
-    this.loginService.login(this.user).subscribe(result => {
-      sessionStorage.setItem('user', btoa(`${this.user.login}:${this.user.password}`));
-      sessionStorage.setItem('token', this.user.login);
+    this.loginService.login(this._user).subscribe(result => {
+      sessionStorage.setItem('user', btoa(`${this._user.login}:${this._user.password}`));
+      sessionStorage.setItem('token', this._user.login);
       this.router.navigate(['/home']);
     }, error => {
-      this.erreur = true;
+      this._erreur = true;
     });
   }
 
