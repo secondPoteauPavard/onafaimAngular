@@ -17,7 +17,7 @@ export class PanierComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get panierService(): PanierService {
+  /*get panierService(): PanierService {
     return this._panierService;
   }
 
@@ -27,5 +27,5 @@ export class PanierComponent implements OnInit {
 
   public supprimer(index: number) {
     this._panierService.delete(index);
-  }
+  }*/
 }
