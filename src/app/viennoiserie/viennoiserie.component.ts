@@ -18,8 +18,9 @@ export class ViennoiserieComponent implements OnInit {
     this.list();
   }
 
-  private list(){
+  private list() {
     this.produitService.findAll().subscribe(result => {
+      console.log(result);
       this.produits = result;
     }, error => {
       console.log(error);

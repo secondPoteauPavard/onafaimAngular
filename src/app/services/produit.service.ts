@@ -19,36 +19,36 @@ export class ProduitService {
   constructor(private http: HttpClient) { }
 
   private authentication(){
-    console.log(sessionStorage.getItem('ROLE_ADMIN'));
+    console.log(sessionStorage.getItem('User'));
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Basic' + sessionStorage.getItem('ROLE_ADMIN')
+      'Authorization': 'Basic ' + sessionStorage.getItem('User')
     });
     this.options = {headers: this.headers};
   }
 
   public findAll(): Observable<any>{
-    return this.http.get(this .url, this.options);
+    return this.http.get(this.url, this.options);
   }
 
 
-  public findAllByType(type: string): Observable<any> {
-    // const o: object = {
-    //   type: produit.type
-    // }
-    if (type === 'Viennoiserie') {
-    return this.http.get(this.url + '/' + type, this.options);
-    };
-    if (type === 'Sandwich') {
-      return this.http.get(this.url + '/' + type, this.options);
-    };
-    if (type === 'Boisson') {
-      return this.http.get(this.url + '/' + type, this.options);
-    };
-    if (type === 'Gateau') {
-      return this.http.get(this.url + '/' + type, this.options);
-    }
-  }
+  // public findAllByType(type: string): Observable<any> {
+  //   // const o: object = {
+  //   //   type: produit.type
+  //   // }
+  //   if (type === 'Viennoiserie') {
+  //   return this.http.get(this.url + '/' + type, this.options);
+  //   };
+  //   if (type === 'Sandwich') {
+  //     return this.http.get(this.url + '/' + type, this.options);
+  //   };
+  //   if (type === 'Boisson') {
+  //     return this.http.get(this.url + '/' + type, this.options);
+  //   };
+  //   if (type === 'Gateau') {
+  //     return this.http.get(this.url + '/' + type, this.options);
+  //   }
+  // }
 
   public delete(id: number): Observable<any> {
     this.authentication();
