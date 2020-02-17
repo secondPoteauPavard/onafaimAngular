@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Compte} from '../model/compte';
 import {Observable} from 'rxjs';
 
@@ -8,20 +8,23 @@ import {Observable} from 'rxjs';
 })
 export class InscriptionService {
 
-  private url: string = 'http://localhost:8080/onafaim/rest/auth/inscription'
+  private url: string = 'http://localhost:8080/onafaim/rest/auth/inscription' ;
+  private headers: HttpHeaders;
+  private option: object;
 
   constructor(private http: HttpClient) {
 
   }
 
+  private authentification() {
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    this.option = {headers: this.headers};
+  }
+
   public add(compte: Compte): Observable<any> {
-    const o: object = {
-      nom: compte.nom,
-      prenom: compte.prenom,
-      numero: compte.numero,
-      email: compte.email,
-      password: compte.password
-    };
-    return this.http.post(this.url, o);
+    console.log(JSON.stringify(compte) + 'service')
+    return this.http.post(this.url, compte, this.option);
   }
 }
