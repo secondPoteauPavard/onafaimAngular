@@ -9,22 +9,23 @@ import {Observable} from 'rxjs';
 export class InscriptionService {
 
   private url: string = 'http://localhost:8080/onafaim/rest/auth/inscription' ;
-  private headers: HttpHeaders;
-  private option: object;
 
   constructor(private http: HttpClient) {
 
   }
 
   private authentification() {
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-    this.option = {headers: this.headers};
+
   }
 
   public add(compte: Compte): Observable<any> {
-    console.log(JSON.stringify(compte) + 'service')
-    return this.http.post(this.url, compte, this.option);
+    const headers: HttpHeaders = new HttpHeaders( {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + btoa(`system:system`)
+    });
+    const options = {headers: headers};
+    console.log(JSON.stringify(compte) + 'service');
+    this.http.post(this.url,compte,)
+    return this.http.post(this.url, compte, options);
   }
 }
