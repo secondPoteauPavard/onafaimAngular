@@ -1,6 +1,6 @@
 export class LigneCommande {
 
-  /*constructor(private _idProduit?: number, private _idCommande?: number, private _quantite?: number ) {
+  constructor(private _idProduit?: number, private _idCommande?: number, private _quantite?: number ) {
   }
 
   get idProduit(): number {
@@ -25,5 +25,5 @@ export class LigneCommande {
 
   set quantite(value: number) {
     this._quantite = value;
-  }*/
+  }
 }

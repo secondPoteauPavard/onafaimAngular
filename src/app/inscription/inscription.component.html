@@ -1,1 +1,14 @@
-<p>inscription works!</p>
+<div>
+  <div class="form-group">
+    <input placeholder="Saisir nom">
+    <input placeholder="Saisir prenom">
+    <input placeholder="Saisir numero">
+    <input placeholder="Saisir email">
+    <input placeholder="Saisir password">
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success" (click)="inscription()">Valider</button>
+    <button class="btn btn-warning" [routerLink]="['/home']" routerLinkActive="active">Annuler</button>
+  </div>
+</div>
