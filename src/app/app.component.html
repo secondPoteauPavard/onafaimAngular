@@ -8,7 +8,7 @@
     <li><a [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
     <ng-container *ngIf="!token">
       <li><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
-      <li><a [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a></li
+      <li><a [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a></li>
     </ng-container>
     <li><a *ngIf="token" [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
     <app-logout *ngIf="token"></app-logout>

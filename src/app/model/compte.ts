@@ -1,4 +1,5 @@
 export class Compte {
+
   constructor(private _nom?: string, private _prenom?: string, private _numero?: string, private _email?: string, private _password?: string) {
 
   }
@@ -43,4 +44,5 @@ export class Compte {
   set password(value: string) {
     this._password = value;
   }
+
 }
