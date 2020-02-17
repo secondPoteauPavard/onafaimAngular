@@ -1,1 +1,21 @@
-<p>inscription works!</p>
+<div class="container">
+  <div class="alert alert-danger" *ngIf="erreur">
+    Erreur de création de compte
+  </div>
+  <div class="form-group">
+    email : <input class="form-control" [(ngModel)]="compte.email">
+  </div>
+  <div class="form-group">
+    mot de passe : <input class="form-control" [(ngModel)]="compte.password">
+  </div>
+  <div class="form-group">
+    nom : <input class="form-control" [(ngModel)]="compte.nom">
+  </div>
+  <div class="form-group">
+    prenom : <input class="form-control" [(ngModel)]="compte.prenom">
+  </div>
+  <div class="form-group">
+    numéro de téléphone : <input class="form-control" [(ngModel)]="compte.numero">
+  </div>
+    <button class="btn btn-outline-primary" (click)="send()">Envoyer</button>
+</div>
