@@ -24,10 +24,10 @@ export class InscriptionComponent implements OnInit {
   constructor(private inscriptionService: InscriptionService, private router: Router) {
 
   }
-
+*/
   ngOnInit(): void {
   }
-
+/*
 
 
   get erreur(): boolean {
