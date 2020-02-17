@@ -12,43 +12,42 @@ import {GateauComponent} from '../gateau/gateau.component';
 })
 export class ProduitService {
 
-  private url: string = 'http://localhost:8080/onafaim/rest/page/produit'
+  private url: string = 'http://localhost:8080/onafaim/rest/page/produit';
   private headers: HttpHeaders;
   private options: object;
 
   constructor(private http: HttpClient) { }
 
   private authentication(){
-    console.log(sessionStorage.getItem('User'));
+    console.log(sessionStorage.getItem('user'));
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + sessionStorage.getItem('User')
+      'Authorization': 'Basic ' + sessionStorage.getItem('user')
     });
     this.options = {headers: this.headers};
   }
 
   public findAll(): Observable<any>{
+    this.authentication();
     return this.http.get(this.url, this.options);
   }
 
 
-  // public findAllByType(type: string): Observable<any> {
-  //   // const o: object = {
-  //   //   type: produit.type
-  //   // }
-  //   if (type === 'Viennoiserie') {
-  //   return this.http.get(this.url + '/' + type, this.options);
-  //   };
-  //   if (type === 'Sandwich') {
-  //     return this.http.get(this.url + '/' + type, this.options);
-  //   };
-  //   if (type === 'Boisson') {
-  //     return this.http.get(this.url + '/' + type, this.options);
-  //   };
-  //   if (type === 'Gateau') {
-  //     return this.http.get(this.url + '/' + type, this.options);
-  //   }
-  // }
+  public findAllByType(type: string): Observable<any> {
+    this.authentication();
+    if (type === 'viennoiserie') {
+      return this.http.get(this.url + '/' + type, this.options);
+    };
+    if (type === 'sandwich') {
+      return this.http.get(this.url + '/' + type, this.options);
+    };
+    if (type === 'boisson') {
+      return this.http.get(this.url + '/' + type, this.options);
+    };
+    if (type === 'gateau') {
+      return this.http.get(this.url + '/' + type, this.options);
+    }
+  }
 
   public delete(id: number): Observable<any> {
     this.authentication();
