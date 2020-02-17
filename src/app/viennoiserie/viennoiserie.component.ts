@@ -9,7 +9,8 @@ import {ProduitService} from '../services/produit.service';
 })
 export class ViennoiserieComponent implements OnInit {
 
-  produits: Produit[] = [];
+  viennoiseries: Produit[] = [];
+
 
   constructor(private produitService: ProduitService) { }
 
@@ -18,8 +19,8 @@ export class ViennoiserieComponent implements OnInit {
   }
 
   private list() {
-    this.produitService.findAllByType().subscribe(results =>{
-      this.produits = results;
+    this.produitService.findAllByType().subscribe(results => {
+      this.viennoiseries = results;
     }, error => {
       console.log('à refaire');
     });
