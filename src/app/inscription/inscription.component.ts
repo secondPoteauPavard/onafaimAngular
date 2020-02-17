@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Compte} from '../model/compte';
-import {LoginService} from '../services/login-service';
+
+
+import {InscriptionService} from '../services/inscription.service';
 import {Router} from '@angular/router';
+import {Compte} from '../model/compte';
+
 
 @Component({
   selector: 'app-inscription',
@@ -10,13 +13,21 @@ import {Router} from '@angular/router';
 })
 export class InscriptionComponent implements OnInit {
 
+/*
   private _erreur: boolean = false;
   private _compte: Compte = new Compte();
 
   constructor(private loginService: LoginService, private router: Router) { }
 
+  private compte: Compte = new Compte();
+
+  constructor(private inscriptionService: InscriptionService, private router: Router) {
+
+  }
+
   ngOnInit(): void {
   }
+
 
 
   get erreur(): boolean {
@@ -45,4 +56,11 @@ send() {
   //   });
   }
 
+
+  public inscription() {
+    this.inscriptionService.add(this.compte).subscribe(result => {
+      this.router.navigate(['/home']);
+    });
+  }
+*/
 }

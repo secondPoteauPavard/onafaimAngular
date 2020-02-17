@@ -1,24 +1,9 @@
 export class Compte {
 
-  constructor(private _email?: string, private _password?: string, private _nom?: string, private _prenom?: string, private _numero?: string) {
+  constructor(private _nom?: string, private _prenom?: string, private _numero?: string, private _email?: string, private _password?: string) {
+
   }
 
-
-  get email(): string {
-    return this._email;
-  }
-
-  set email(value: string) {
-    this._email = value;
-  }
-
-  get password(): string {
-    return this._password;
-  }
-
-  set password(value: string) {
-    this._password = value;
-  }
 
   get nom(): string {
     return this._nom;
@@ -43,4 +28,21 @@ export class Compte {
   set numero(value: string) {
     this._numero = value;
   }
+
+  get email(): string {
+    return this._email;
+  }
+
+  set email(value: string) {
+    this._email = value;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
+  }
+
 }
