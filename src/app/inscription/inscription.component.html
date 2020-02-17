@@ -1,32 +1,15 @@
-<!--
-<div class="container">
-  <div class="alert alert-danger" *ngIf="erreur">
-    Erreur de création de compte
-  </div>
-  <div class="form-group">
-    email : <input class="form-control" [(ngModel)]="compte.email">
-  </div>
-  <div class="form-group">
-    mot de passe : <input class="form-control" [(ngModel)]="compte.password">
-  </div>
-  <div class="form-group">
-    nom : <input class="form-control" [(ngModel)]="compte.nom">
-  </div>
-  <div class="form-group">
-    prenom : <input class="form-control" [(ngModel)]="compte.prenom">
-  </div>
-  <div class="form-group">
-    numéro de téléphone : <input class="form-control" [(ngModel)]="compte.numero">
-  </div>
-    <button class="btn btn-outline-primary" (click)="send()">Envoyer</button>
-
 <div>
   <div class="form-group">
-    <input placeholder="Saisir nom">
-    <input placeholder="Saisir prenom">
-    <input placeholder="Saisir numero">
-    <input placeholder="Saisir email">
-    <input placeholder="Saisir password">
+    Nom<br>
+    <input [(ngModel)]="compte.nom" placeholder="Saisir nom"><br><br>
+    Prenom<br>
+    <input [(ngModel)]="compte.prenom" placeholder="Saisir prenom"><br><br>
+    Numero<br>
+    <input [(ngModel)]="compte.numero" placeholder="Saisir numero"><br><br>
+    Email<br>
+    <input [(ngModel)]="compte.email" placeholder="Saisir email"><br><br>
+    Password<br>
+    <input [(ngModel)]="compte.password" placeholder="Saisir password"><br><br>
   </div>
 
   <div class="form-group">
@@ -34,4 +17,4 @@
     <button class="btn btn-warning" [routerLink]="['/home']" routerLinkActive="active">Annuler</button>
   </div>
 
-</div>-->
+</div>

@@ -15,13 +15,13 @@ export class InscriptionService {
   }
 
   public add(compte: Compte): Observable<any> {
-    const o: object = {
-      nom: compte.nom,
-      prenom: compte.prenom,
-      numero: compte.numero,
-      email: compte.email,
-      password: compte.password
-    };
-    return this.http.post(this.url, o);
+    // @ts-ignore
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    const options = {headers: headers};
+    console.log(JSON.stringify(compte) + 'service');
+    return this.http.post(this.url, compte, options);
   }
+
 }

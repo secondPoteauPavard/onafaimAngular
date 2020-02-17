@@ -17,14 +17,14 @@ export class InscriptionComponent implements OnInit {
   private _erreur: boolean = false;
   private _compte: Compte = new Compte();
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router) { }*/
 
-  private compte: Compte = new Compte();
+    private compte: Compte = new Compte();
 
-  constructor(private inscriptionService: InscriptionService, private router: Router) {
+    constructor(private inscriptionService: InscriptionService, private router: Router) {
 
-  }
-*/
+    }
+
   ngOnInit(): void {
   }
 /*
@@ -56,11 +56,11 @@ send() {
   //   });
   }
 
-
+*/
   public inscription() {
     this.inscriptionService.add(this.compte).subscribe(result => {
       this.router.navigate(['/home']);
     });
   }
-*/
+
 }

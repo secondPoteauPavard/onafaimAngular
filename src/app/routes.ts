@@ -13,7 +13,7 @@ export const routes: Routes = [
 //   {path: 'boisson', component: BoissonComponent},
 //   {path: 'devis/:id', component: DevisComponent},
 //   {path: 'commande/:id', component: CommandeComponent},
-   {path: 'panier/:id', component: PanierComponent},
+   {path: 'panier', component: PanierComponent},
 //   {path: 'gestionClient', component: GestionClientComponent},
    {path: 'login', component: LoginComponent},
    {path: 'inscription', component: InscriptionComponent},
