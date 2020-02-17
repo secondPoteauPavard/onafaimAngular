@@ -6,7 +6,6 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class PanierService {
-/*
   private _ligneCommande: LigneCommande[] = [new LigneCommande()];
   private url: string = 'http://localhost:8080/onafaim/panier'
 
@@ -22,5 +21,5 @@ export class PanierService {
 
   public delete(index: number) {
     this._ligneCommande.splice(index);
-  }*/
+  }
 }
