@@ -3,6 +3,7 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {ViennoiserieComponent} from './viennoiserie/viennoiserie.component';
+import {PanierComponent} from './panier/panier.component';
 
 export const routes: Routes = [
    {path: 'home', component: HomeComponent},
@@ -12,7 +13,7 @@ export const routes: Routes = [
 //   {path: 'boisson', component: BoissonComponent},
 //   {path: 'devis/:id', component: DevisComponent},
 //   {path: 'commande/:id', component: CommandeComponent},
-//   {path: 'panier/:id', component: PanierComponent},
+   {path: 'panier/:id', component: PanierComponent},
 //   {path: 'gestionClient', component: GestionClientComponent},
    {path: 'login', component: LoginComponent},
    {path: 'inscription', component: InscriptionComponent},
