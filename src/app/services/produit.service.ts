@@ -25,10 +25,10 @@ export class ProduitService {
 
 
   public findAllByType(produit: Produit): Observable<any> {
-    const o: object = {
-      type: produit.type
-    }
-    return this.http.get(this.url, this.options);
+    // const o: object = {
+    //   type: produit.type
+    // }
+    return this.http.get(this.url + '/' + produit.type, this.options);
   }
 
   public delete(id: number): Observable<any>{
@@ -52,7 +52,7 @@ export class ProduitService {
 
 
 
-  
+
 
 
 }
