@@ -9,7 +9,7 @@ import {ProduitService} from '../services/produit.service';
 })
 export class ViennoiserieComponent implements OnInit {
 
-  viennoiseries: Produit[] = [];
+  produits: Produit[] = [];
 
 
   constructor(private produitService: ProduitService) { }
@@ -18,13 +18,21 @@ export class ViennoiserieComponent implements OnInit {
     this.list();
   }
 
-  private list() {
-    this.produitService.findAllByType().subscribe(results => {
-      this.viennoiseries = results;
+  private list(){
+    this.produitService.findAll().subscribe(result => {
+      this.produits = result;
     }, error => {
-      console.log('à refaire');
+      console.log(error);
     });
   }
+
+  // private list() {
+  //   this.produitService.findAllByType('viennoiseries').subscribe(results => {
+  //     this.viennoiseries = results;
+  //   }, error => {
+  //     console.log('à refaire');
+  //   });
+  // }
 
   public delete(id: number) {
     this.produitService.delete(id).subscribe(results => {
