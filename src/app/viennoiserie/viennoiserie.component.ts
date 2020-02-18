@@ -10,6 +10,7 @@ import {ProduitService} from '../services/produit.service';
 export class ViennoiserieComponent implements OnInit {
 
   viennoiseries: Produit[] = [];
+  quantite: number;
 
 
   constructor(private produitService: ProduitService) { }
@@ -30,6 +31,7 @@ export class ViennoiserieComponent implements OnInit {
   private list() {
     this.produitService.findAllByType('viennoiserie').subscribe(results => {
       this.viennoiseries = results;
+      console.log(this.viennoiseries);
     }, error => {
       console.log('à refaire');
     });
@@ -45,6 +47,10 @@ export class ViennoiserieComponent implements OnInit {
     this.produitService.insert().subscribe(result =>{
       this.list();
     });
+  }
+
+  public send(indice: number) {
+    sessionStorage.setItem(`${this.viennoiseries[indice].libelle}`, `${this.quantite}`);
   }
 
 
