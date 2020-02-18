@@ -14,18 +14,14 @@ export class InscriptionService {
 
   }
 
-  private authentification() {
-
-  }
 
   public add(compte: Compte): Observable<any> {
     const headers: HttpHeaders = new HttpHeaders( {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + btoa(`system:system`)
+      'Authorization': 'No Auth '
     });
     const options = {headers: headers};
     console.log(JSON.stringify(compte) + 'service');
-    this.http.post(this.url,compte,)
     return this.http.post(this.url, compte, options);
   }
 }

@@ -20,10 +20,6 @@ export class LoginService {
     const options: object = {
       headers: headers
     };
-/*    const o: object = {
-      login: user.login,
-      password: user.password
-    };*/
-    return this.http.get(this.url, options);
+    return this.http.get(this.url,  options);
   }
 }
