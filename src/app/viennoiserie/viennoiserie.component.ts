@@ -10,7 +10,9 @@ import {ProduitService} from '../services/produit.service';
 export class ViennoiserieComponent implements OnInit {
 
   viennoiseries: Produit[] = [];
+  listPanier: any[] = [];
   quantite: number;
+  premierPassage = true;
 
 
   constructor(private produitService: ProduitService) { }
@@ -43,14 +45,15 @@ export class ViennoiserieComponent implements OnInit {
     });
   }
 
-  public save() {
-    this.produitService.insert().subscribe(result =>{
-      this.list();
-    });
-  }
-
   public send(indice: number) {
-    sessionStorage.setItem(`${this.viennoiseries[indice].libelle}`, `${this.quantite}`);
+    if (this.premierPassage) {
+      this.premierPassage = false;
+      sessionStorage.setItem('monPanier', `{'indice': ${indice}, 'quantite': ${this.quantite}}`);
+    }
+    sessionStorage.setItem('monPanier', `${sessionStorage.getItem('monPanier')},{'indice': ${indice}, 'quantite': ${this.quantite}}`);
+    // this.listPanier = JSON.parse(sessionStorage.getItem('monPanier')).push({'indice': indice, 'quantite': this.quantite});
+    // sessionStorage.setItem('monPanier', JSON.stringify(this.listPanier));
+    console.log(sessionStorage.getItem('monPanier'));
   }
 
 

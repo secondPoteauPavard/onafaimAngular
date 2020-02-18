@@ -1,1 +1,12 @@
 <p>mon-panier works!</p>
+
+<table>
+  <tr>
+    <th>indice</th>
+    <th>quantite</th>
+  </tr>
+  <tr *ngFor="let m of monPanierlist">
+    <td>{{m.indice}}</td>
+    <td>{{m.quantite}}</td>
+  </tr>
+</table>

@@ -55,16 +55,16 @@ export class ProduitService {
   }
 
 
-  public insert(): Observable<any>{
+  public insert(produit: Produit): Observable<any>{
     this.authentication();
-   //  const o: object = {
-   //   libelle: produit.libelle,
-   //   taille: produit.taille,
-   //   prix: produit.prix,
-   //   type: produit.type,
-   //   description: produit.description,
-   //   photo: produit.photo
-   // };
+    const o: object = {
+     libelle: produit.libelle,
+     taille: produit.taille,
+     prix: produit.prix,
+     type: produit.type,
+     description: produit.description,
+     photo: produit.photo
+   };
     return this.http.post(this.url, this.options);
   }
 

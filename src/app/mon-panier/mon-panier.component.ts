@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProduitService} from '../services/produit.service';
 
 @Component({
   selector: 'app-mon-panier',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonPanierComponent implements OnInit {
 
-  constructor() { }
+  monPanierlist: any[] = [];
+
+  constructor(private produitService: ProduitService) { }
 
   ngOnInit(): void {
+    this.listProduit();
   }
+
+  private listProduit() {
+    this.monPanierlist = JSON.parse(sessionStorage.getItem('monPanier'));
+    console.log(this.monPanierlist);
+  }
+
+
 
 }
