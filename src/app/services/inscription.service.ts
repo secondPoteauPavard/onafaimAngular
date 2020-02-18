@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Compte} from '../model/compte';
 import {Observable} from 'rxjs';
 
@@ -8,16 +8,20 @@ import {Observable} from 'rxjs';
 })
 export class InscriptionService {
 
-  private url: string = 'http://localhost:8080/onafaim/rest/auth/inscription'
+  private url: string = 'http://localhost:8080/onafaim/rest/auth/inscription' ;
 
   constructor(private http: HttpClient) {
 
   }
 
+  private authentification() {
+
+  }
+
   public add(compte: Compte): Observable<any> {
-    // @ts-ignore
-    const headers: HttpHeaders = new HttpHeaders({
+    const headers: HttpHeaders = new HttpHeaders( {
       'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + btoa(`system:system`)
     });
     const options = {headers: headers};
     console.log(JSON.stringify(compte) + 'service');

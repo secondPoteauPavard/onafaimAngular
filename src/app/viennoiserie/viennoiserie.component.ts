@@ -9,7 +9,8 @@ import {ProduitService} from '../services/produit.service';
 })
 export class ViennoiserieComponent implements OnInit {
 
-  produits: Produit[] = [];
+  viennoiseries: Produit[] = [];
+
 
   constructor(private produitService: ProduitService) { }
 
@@ -17,9 +18,18 @@ export class ViennoiserieComponent implements OnInit {
     this.list();
   }
 
+  // private list() {
+  //   this.produitService.findAll().subscribe(result => {
+  //     console.log(result);
+  //     this.produits = result;
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
+
   private list() {
-    this.produitService.findAllByType().subscribe(results =>{
-      this.produits = results;
+    this.produitService.findAllByType('viennoiserie').subscribe(results => {
+      this.viennoiseries = results;
     }, error => {
       console.log('à refaire');
     });

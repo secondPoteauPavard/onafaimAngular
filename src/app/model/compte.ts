@@ -1,6 +1,7 @@
 export class Compte {
 
-  constructor(nom?: string, prenom?: string, numero?: string, email?: string, password?: string) {
+
+  constructor (public nom?: string, public prenom?: string, public numero?: string, public email?: string, public password?: string) {
 
   }
 
