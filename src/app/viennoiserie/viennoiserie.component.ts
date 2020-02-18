@@ -41,13 +41,6 @@ export class ViennoiserieComponent implements OnInit {
     });
   }
 
-  public save() {
-    this.produitService.insert().subscribe(result =>{
-      this.list();
-    });
-  }
-
-
   // public update(prix: number) {
   //   this.produitService.modifierPrix(prix).subscribe(result =>{
   //     this.list();
