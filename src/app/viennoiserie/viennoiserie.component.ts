@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Produit} from '../model/produit';
 import {ProduitService} from '../services/produit.service';
 
@@ -10,12 +10,12 @@ import {ProduitService} from '../services/produit.service';
 export class ViennoiserieComponent implements OnInit {
 
   viennoiseries: Produit[] = [];
-  listPanier: any[] = [];
   quantite: number;
   premierPassage = true;
 
 
-  constructor(private produitService: ProduitService) { }
+  constructor(private produitService: ProduitService) {
+  }
 
   ngOnInit() {
     this.list();
@@ -46,17 +46,23 @@ export class ViennoiserieComponent implements OnInit {
   }
 
   public send(indice: number) {
+    const ligneCommande: any = {};
+
+    ligneCommande.indice = indice;
+    ligneCommande.quantite = this.quantite;
+
     if (this.premierPassage) {
+      const monPanier: Array<any> = new Array();
+      monPanier.push(ligneCommande);
+      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
       this.premierPassage = false;
-      sessionStorage.setItem('monPanier', `{'indice': ${indice}, 'quantite': ${this.quantite}}`);
+    } else {
+      const monPanier: Array<any> = JSON.parse(sessionStorage.getItem('monPanier'));
+      monPanier.push(ligneCommande);
+      console.log(monPanier);
+      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
     }
-    sessionStorage.setItem('monPanier', `${sessionStorage.getItem('monPanier')},{'indice': ${indice}, 'quantite': ${this.quantite}}`);
-    // this.listPanier = JSON.parse(sessionStorage.getItem('monPanier')).push({'indice': indice, 'quantite': this.quantite});
-    // sessionStorage.setItem('monPanier', JSON.stringify(this.listPanier));
-    console.log(sessionStorage.getItem('monPanier'));
   }
-
-
 
 
 }
