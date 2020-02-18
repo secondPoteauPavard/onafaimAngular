@@ -15,11 +15,9 @@ export class LoginService {
   public login(user: User): Observable<any> {
     const headers: HttpHeaders = new HttpHeaders( {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + btoa(`${user.login}:${user.password}`)
+      'Authorization': 'Basic ' + 'system:system'
     });
-    const options: object = {
-      headers: headers
-    };
-    return this.http.get(this.url,  options);
+    const options = {headers: headers, user};
+    return this.http.get(this.url, options);
   }
 }
