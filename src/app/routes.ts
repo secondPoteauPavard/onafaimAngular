@@ -7,6 +7,7 @@ import {PanierComponent} from './panier/panier.component';
 import {SandwichComponent} from './sandwich/sandwich.component';
 import {GateauComponent} from './gateau/gateau.component';
 import {BoissonComponent} from './boisson/boisson.component';
+import {MonPanierComponent} from './mon-panier/mon-panier.component';
 
 export const routes: Routes = [
    {path: 'home', component: HomeComponent},
@@ -14,6 +15,7 @@ export const routes: Routes = [
    {path: 'viennoiserie', component: ViennoiserieComponent},
    {path: 'gateau', component: GateauComponent},
    {path: 'boisson', component: BoissonComponent},
+   {path: 'monPanier', component: MonPanierComponent},
 //   {path: 'devis/:id', component: DevisComponent},
 //   {path: 'commande/:id', component: CommandeComponent},
    {path: 'panier', component: PanierComponent},

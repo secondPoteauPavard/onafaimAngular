@@ -16,6 +16,7 @@ import { BoissonComponent } from './boisson/boisson.component';
 import { SandwichComponent } from './sandwich/sandwich.component';
 import { GateauComponent } from './gateau/gateau.component';
 import { EditProduitComponent } from './edit-produit/edit-produit.component';
+import { MonPanierComponent } from './mon-panier/mon-panier.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { EditProduitComponent } from './edit-produit/edit-produit.component';
     BoissonComponent,
     SandwichComponent,
     GateauComponent,
-    EditProduitComponent
+    EditProduitComponent,
+    MonPanierComponent
 
   ],
   imports: [
