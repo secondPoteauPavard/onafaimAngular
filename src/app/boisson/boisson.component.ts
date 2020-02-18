@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Produit} from '../model/produit';
+import {ProduitService} from '../services/produit.service';
 
 @Component({
   selector: 'app-boisson',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoissonComponent implements OnInit {
 
-  constructor() { }
+  boissons: Produit[] = [];
 
-  ngOnInit(): void {
+
+  constructor(private produitService: ProduitService) { }
+
+  ngOnInit() {
+    this.list();
+  }
+
+  private list() {
+    this.produitService.findAllByType('boisson').subscribe(results => {
+      this.boissons = results;
+    }, error => {
+      console.log('à refaire');
+    });
+  }
+
+  public delete(id: number) {
+    this.produitService.delete(id).subscribe(results => {
+      this.list();
+    });
+  }
+
+  public save() {
+    this.produitService.insert().subscribe(result =>{
+      this.list();
+    });
   }
 
 }
