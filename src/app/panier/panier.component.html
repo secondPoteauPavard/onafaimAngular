@@ -9,8 +9,8 @@
       <th>Prix</th>
     </tr>
     <tr *ngFor="let p of commande.panier, let i = index">
-      <td>{{p.qte}}</td>
       <td>{{p.id.produit.libelle}}</td>
+      <td>{{p.qte}}</td>
       <td>{{p.id.produit.taille}}</td>
       <td>{{p.id.produit.prix}}</td>
     </tr>
