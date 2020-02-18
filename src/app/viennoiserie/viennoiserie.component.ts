@@ -45,12 +45,6 @@ export class ViennoiserieComponent implements OnInit {
     });
   }
 
-  public save() {
-    this.produitService.insert().subscribe(result =>{
-      this.list();
-    });
-  }
-
   public send(indice: number) {
     if (this.premierPassage) {
       this.premierPassage = false;
