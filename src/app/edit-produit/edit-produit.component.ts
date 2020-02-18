@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class EditProduitComponent implements OnInit {
 
-  private produit: Produit = new Produit();
+  public produit: Produit = new Produit();
 
   constructor(private produitService: ProduitService, private router: Router) { }
 
@@ -18,7 +18,7 @@ export class EditProduitComponent implements OnInit {
   }
 
   public save() {
-    this.produitService.insert().subscribe(result =>{
+    this.produitService.insert(this.produit).subscribe(result =>{
       this.router.navigate(['/produit']);
     });
   }
