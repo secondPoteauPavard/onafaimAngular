@@ -6,11 +6,17 @@
     <li><a [routerLink]="['/home']" routerLinkActive="active">Accueil</a></li>
     <li><a [routerLink]="['/sandwich']" routerLinkActive="active">Sandwich</a></li>
     <li><a [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
+    <li><a [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
+    <li><a [routerLink]="['/gateau']" routerLinkActive="active">Gateau</a></li>
+    <li><a [routerLink]="['/boisson']" routerLinkActive="active">Boisson</a></li>
+    <li><a [routerLink]="['/monPanier']" routerLinkActive="active">Mon Panier</a></li>
     <ng-container *ngIf="!token">
       <li><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
       <li><a [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a></li>
     </ng-container>
-    <li><a *ngIf="token" [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
+    <ng-container *ngIf="token">
+      <li><a [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
+    </ng-container>
     <app-logout *ngIf="token"></app-logout>
   </ul>
 </nav>

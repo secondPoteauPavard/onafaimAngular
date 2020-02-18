@@ -24,4 +24,5 @@ export class InscriptionService {
     console.log(JSON.stringify(compte) + 'service');
     return this.http.post(this.url, compte, options);
   }
+
 }

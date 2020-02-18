@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Produit} from '../model/produit';
+import {ProduitService} from '../services/produit.service';
 
 @Component({
   selector: 'app-sandwich',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandwichComponent implements OnInit {
 
-  constructor() { }
+  sandwichs: Produit[] = [];
 
-  ngOnInit(): void {
+  constructor(private produitService: ProduitService) { }
+
+  ngOnInit() {
+    this.list();
   }
+
+  private list() {
+    this.produitService.findAllByType('sandwich').subscribe(results => {
+      this. sandwichs = results;
+    }, error => {
+      console.log('à refaire');
+    });
+  }
+
+  public delete(id: number) {
+    this.produitService.delete(id).subscribe(results => {
+      this.list();
+    });
+  }
+
 
 }

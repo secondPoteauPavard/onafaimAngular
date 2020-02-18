@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LigneCommande} from '../model/ligne-commande';
 import {PanierService} from '../services/panier.service';
+import {Commande} from '../model/commande';
 
 @Component({
   selector: 'app-panier',
@@ -9,23 +10,25 @@ import {PanierService} from '../services/panier.service';
 })
 export class PanierComponent implements OnInit {
 
+  commande: Commande;
+  constructor(private panierService: PanierService ) { }
 
-  constructor(private _panierService: PanierService) {
-    this._panierService = _panierService;
+
+  ngOnInit() {
+    this.list();
   }
 
-  ngOnInit(): void {
+  private list() {
+    this.panierService.findAll().subscribe(result => {
+      this.commande = result;
+    }, error => {
+      console.log(error);
+    });
   }
 
-  get panierService(): PanierService {
-    return this._panierService;
-  }
-
-  set panierService(value: PanierService) {
-    this._panierService = value;
-  }
-
-  public supprimer(index: number) {
-    this._panierService.delete(index);
-  }
+  /*public delete(nom: string) {
+    this.panierService.delete(nom).subscribe(result => {
+      this.list();
+    });
+  }*/
 }

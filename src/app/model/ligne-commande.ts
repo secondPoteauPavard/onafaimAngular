@@ -1,29 +1,38 @@
 export class LigneCommande {
 
-  constructor(private _idProduit?: number, private _idCommande?: number, private _quantite?: number ) {
+  constructor(private _qte?: number, private _libelle?: string, private _taille?: string, private _prix?: number) {
   }
 
-  get idProduit(): number {
-    return this._idProduit;
+
+  get qte(): number {
+    return this._qte;
   }
 
-  set idProduit(value: number) {
-    this._idProduit = value;
+  set qte(value: number) {
+    this._qte = value;
   }
 
-  get idCommande(): number {
-    return this._idCommande;
+  get libelle(): string {
+    return this._libelle;
   }
 
-  set idCommande(value: number) {
-    this._idCommande = value;
+  set libelle(value: string) {
+    this._libelle = value;
   }
 
-  get quantite(): number {
-    return this._quantite;
+  get taille(): string {
+    return this._taille;
   }
 
-  set quantite(value: number) {
-    this._quantite = value;
+  set taille(value: string) {
+    this._taille = value;
+  }
+
+  get prix(): number {
+    return this._prix;
+  }
+
+  set prix(value: number) {
+    this._prix = value;
   }
 }

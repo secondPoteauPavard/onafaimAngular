@@ -1,26 +1,35 @@
 import { Injectable } from '@angular/core';
 import {LigneCommande} from '../model/ligne-commande';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanierService {
 
-  private _ligneCommande: LigneCommande[] = [new LigneCommande()];
-  private url: string = 'http://localhost:8080/onafaim/panier'
+  private url: string = 'http://localhost:8080/onafaim/panier/2'
+  private headers: HttpHeaders;
+  private options: object;
 
   constructor(private http: HttpClient) { }
 
-  get ligneCommande(): LigneCommande[] {
-    return this._ligneCommande;
+  private authentication() {
+    this.headers = new HttpHeaders( {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + sessionStorage.getItem('user')
+    });
+    this.options = {headers: this.headers};
   }
 
-  set ligneCommande(value: LigneCommande[]) {
-    this._ligneCommande = value;
+  public findAll(): Observable<any> {
+    this.authentication();
+    return this.http.get(this.url, this.options);
   }
+/*
+  public delete(nom: string): Observable<any> {
+    this.authentication();
+    return this.http.delete(this.url + '/' + nom, this.options);
+  }*/
 
-  public delete(index: number) {
-    this._ligneCommande.splice(index);
-  }
 }
