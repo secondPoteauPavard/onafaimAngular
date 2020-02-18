@@ -32,10 +32,5 @@ export class BoissonComponent implements OnInit {
     });
   }
 
-  public save() {
-    this.produitService.insert().subscribe(result =>{
-      this.list();
-    });
-  }
 
 }
