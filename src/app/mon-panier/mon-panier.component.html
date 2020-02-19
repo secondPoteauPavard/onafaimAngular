@@ -1,12 +1,25 @@
-<p>mon-panier works!</p>
+<h1>Récapitulatif de mon panier</h1>
 
-<table>
-  <tr>
-    <th>indice</th>
-    <th>quantite</th>
-  </tr>
-  <tr *ngFor="let m of monPanierlist">
-    <td>{{m.indice}}</td>
-    <td>{{m.quantite}}</td>
-  </tr>
-</table>
+<div class="container">
+  <table border>
+    <tr>
+      <th>indice</th>
+      <th>libellé</th>
+      <th>quantite</th>
+      <th>prix</th>
+
+    </tr>
+    <tr *ngFor="let m of monPanierlist, let i = index">
+      <td>{{m.indice}}</td>
+      <td>{{m.produit.libelle}}</td>
+      <td>{{m.quantite}}</td>
+      <td>{{m.produit.prix}}</td>
+      <td><button class="btn btn-outline-danger" (click)="deleteLine(i)">Supprimer</button></td>
+    </tr>
+  </table>
+  <br>
+  <div>
+    <button class="btn btn-outline-success" (click)="validerPanier()">Valider mon panier</button>
+    <button class="btn btn-outline-danger" (click)="abandonnerPanier()">Abandonner le panier</button>
+  </div>
+</div>

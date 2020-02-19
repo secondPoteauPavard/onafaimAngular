@@ -19,7 +19,6 @@ export class ProduitService {
   constructor(private http: HttpClient) { }
 
   private authentication(){
-    console.log(sessionStorage.getItem('user'));
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Basic ' + sessionStorage.getItem('user')
@@ -30,6 +29,12 @@ export class ProduitService {
   public findAll(): Observable<any>{
     this.authentication();
     return this.http.get(this.url, this.options);
+  }
+
+  public findById(id: number): Observable<any>{
+    this.authentication();
+    id = id + 1;
+    return this.http.get(this.url + '/' + id, this.options);
   }
 
 

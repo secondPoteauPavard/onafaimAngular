@@ -11,13 +11,15 @@ export class ViennoiserieComponent implements OnInit {
 
   viennoiseries: Produit[] = [];
   quantite: number;
-  premierPassage = true;
+  ligneCommande: any = {};
+
 
 
   constructor(private produitService: ProduitService) {
   }
 
   ngOnInit() {
+    sessionStorage.setItem('panierVide', 'true');
     this.list();
   }
 
@@ -33,7 +35,6 @@ export class ViennoiserieComponent implements OnInit {
   private list() {
     this.produitService.findAllByType('viennoiserie').subscribe(results => {
       this.viennoiseries = results;
-      console.log(this.viennoiseries);
     }, error => {
       console.log('à refaire');
     });
@@ -46,22 +47,24 @@ export class ViennoiserieComponent implements OnInit {
   }
 
   public send(indice: number) {
-    const ligneCommande: any = {};
-
-    ligneCommande.indice = indice;
-    ligneCommande.quantite = this.quantite;
-
-    if (this.premierPassage) {
-      const monPanier: Array<any> = new Array();
-      monPanier.push(ligneCommande);
-      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
-      this.premierPassage = false;
-    } else {
-      const monPanier: Array<any> = JSON.parse(sessionStorage.getItem('monPanier'));
-      monPanier.push(ligneCommande);
-      console.log(monPanier);
-      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+    if (sessionStorage.getItem('monPanier')) {
+      sessionStorage.setItem('panierVide', 'false');
     }
+    this.ligneCommande.indice = indice;
+    this.ligneCommande.quantite = this.quantite;
+    this.produitService.findById(indice).subscribe(results => {
+      this.ligneCommande.produit = results;
+      if (sessionStorage.getItem('panierVide') === 'true') {
+        const monPanier: Array<any> = new Array();
+        monPanier.push(this.ligneCommande);
+        sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+        sessionStorage.setItem('panierVide', 'false');
+      } else {
+        const monPanier: Array<any> = JSON.parse(sessionStorage.getItem('monPanier'));
+        monPanier.push(this.ligneCommande);
+        sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+      }
+    });
   }
 
 
