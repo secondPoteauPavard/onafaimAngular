@@ -1,28 +1,50 @@
-<header>
-  mon super header avec une belle photo
-</header>
-<nav>
-  <ul id="menu">
-    <li><a [routerLink]="['/home']" routerLinkActive="active">Accueil</a></li>
-    <li><a [routerLink]="['/sandwich']" routerLinkActive="active">Sandwich</a></li>
-    <li><a [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
-    <li><a [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
-    <li><a [routerLink]="['/gateau']" routerLinkActive="active">Gateau</a></li>
-    <li><a [routerLink]="['/boisson']" routerLinkActive="active">Boisson</a></li>
-    <li><a [routerLink]="['/monPanier']" routerLinkActive="active">Mon Panier</a></li>
-    <ng-container *ngIf="!token">
-      <li><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
-      <li><a [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a></li>
-    </ng-container>
-    <ng-container *ngIf="token">
-      <li><a [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
-    </ng-container>
-    <app-logout *ngIf="token"></app-logout>
-  </ul>
-</nav>
+<body>
+  <header>
+    <div id="header" class="row">
+      <img id="logo" src="../assets/images/logo.png">
 
-<router-outlet></router-outlet>
+      <div class="col-10">
+        <p id="nomSite">On a faim</p>
+      </div>
 
-<footer>
-  mon footer
-</footer>
+      <div class="col-2">
+        <ng-container *ngIf="!token">
+          <li><a id="btnConnect" class="btn btn-light" [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
+          <li><a id="btnSignOn0" class="btn btn-light" [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf='role== "ROLE_CLIENT"'>
+          <li><a [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
+        </ng-container>
+
+        <ng-container *ngIf='role== "ROLE_ADMIN"'>
+          <li><a class="nav-link" style="color: white" [routerLink]="['/boisson']" routerLinkActive="active">Boisson</a></li>
+        </ng-container>
+
+        <app-logout *ngIf="token"></app-logout>
+      </div>
+    </div>
+
+  </header>
+
+  <nav>
+    <ul id="nav">
+      <li><a class="nav-link" style="color: white" [routerLink]="['/home']" routerLinkActive="active">Accueil</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/sandwich']" routerLinkActive="active">Sandwich</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/panier']" routerLinkActive="active">Panier</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/gateau']" routerLinkActive="active">Gateau</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/boisson']" routerLinkActive="active">Boisson</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/monPanier']" routerLinkActive="active">Mon Panier</a></li>
+    </ul>
+  </nav>
+
+  <div id="content">
+  <router-outlet></router-outlet>
+  </div>
+
+  <footer>
+    AJC-INGENIERIE/SOPRA STERIA
+  </footer>
+</body>
