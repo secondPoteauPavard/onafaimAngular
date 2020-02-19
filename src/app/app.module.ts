@@ -18,6 +18,7 @@ import { GateauComponent } from './gateau/gateau.component';
 import { EditProduitComponent } from './edit-produit/edit-produit.component';
 import { MonPanierComponent } from './mon-panier/mon-panier.component';
 import { ChoixEnumComponent } from './choix-enum/choix-enum.component';
+import { CommandeComponent } from './commande/commande.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ChoixEnumComponent } from './choix-enum/choix-enum.component';
     GateauComponent,
     EditProduitComponent,
     MonPanierComponent,
-    ChoixEnumComponent
+    ChoixEnumComponent,
+    CommandeComponent
 
   ],
   imports: [

@@ -21,7 +21,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuClient">
               <a class="dropdown-item" [routerLink]="['/monPanier']" routerLinkActive="active">Mon panier</a>
-              <a class="dropdown-item" href="#">Mes commandes</a>
+              <a class="dropdown-item" [routerLink]="['/listCommande']" routerLinkActive="active">Mes commandes</a>
               <a class="dropdown-item" href="#">Mes devis</a>
               <app-logout></app-logout>
             </div>

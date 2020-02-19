@@ -9,6 +9,7 @@ import {GateauComponent} from './gateau/gateau.component';
 import {BoissonComponent} from './boisson/boisson.component';
 import {MonPanierComponent} from './mon-panier/mon-panier.component';
 import {EditProduitComponent} from './edit-produit/edit-produit.component';
+import {CommandeComponent} from './commande/commande.component';
 
 export const routes: Routes = [
    {path: 'home', component: HomeComponent},
@@ -24,6 +25,7 @@ export const routes: Routes = [
    {path: 'login', component: LoginComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'produit/add', component: EditProduitComponent},
+  {path: 'listCommande', component: CommandeComponent},
 
 //   {path: 'parametreClient/:id', component: ParametreClientComponent},
    {path: '', redirectTo: '/home', pathMatch: 'full'},
