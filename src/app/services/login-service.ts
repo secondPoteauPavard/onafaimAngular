@@ -18,7 +18,6 @@ export class LoginService {
       'Authorization': 'Basic ' + btoa('system:system')
     });
     const options = {headers: headers};
-    console.log(user);
     return this.http.post(this.url, user,  options);
   }
 }

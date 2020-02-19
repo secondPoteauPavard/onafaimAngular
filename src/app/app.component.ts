@@ -13,4 +13,8 @@ export class AppComponent {
   get token() {
     return sessionStorage.getItem('token');
   }
+
+  get role(){
+    return sessionStorage.getItem('role');
+  }
 }

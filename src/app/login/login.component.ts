@@ -22,8 +22,11 @@ export class LoginComponent implements OnInit {
 
   send() {
     this.loginService.login(this.user).subscribe(result => {
+      this.user=result;
       sessionStorage.setItem('user', btoa(`${this.user.email}:${this.user.password}`));
       sessionStorage.setItem('token', this.user.email);
+      sessionStorage.setItem('role', this.user.role);
+      console.log(this.user);
       this.router.navigate(['/home']);
     }, error => {
       this.erreur = true;
