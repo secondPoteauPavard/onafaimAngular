@@ -14,7 +14,7 @@ export class EditProduitComponent implements OnInit {
 
   constructor(private produitService: ProduitService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   public save() {
