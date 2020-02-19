@@ -32,4 +32,9 @@ export class PanierService {
     return this.http.delete(this.url + '/' + nom, this.options);
   }*/
 
+  public EnregistrerEnBase() {
+    this.authentication();
+    // return this.http.get(this.url, this.options);
+  }
+
 }

@@ -3,7 +3,7 @@
   <h2>Liste des sandwichs</h2>
 
   <div class="row">
-    <div *ngFor="let s of sandwichs">
+    <div *ngFor="let s of sandwichs; let i=index">
       <div class="crew col-lg-3">
         <table>
           <tr><th [attr.colspan]="s.libelle.length">{{s.libelle}}</th></tr>
@@ -12,8 +12,8 @@
           <tr>
             <td>{{s.taille}}</td>
             <td>{{s.prix}}</td>
-            <td><input class="champ" type="number"></td>
-            <td><a href="" class="btn btn-outline-success"> OK </a></td>
+            <td><input class="champ" type="number" [(ngModel)]="quantite"></td>
+            <td><a class="btn btn-outline-success" (click)="send(i)"> OK </a></td>
           </tr>
           <!--          <tr><button class="btn-outline-primary" (click)="update(v.prix)">modifier</button></tr>-->
           <tr><td><button class="btn-outline-primary" (click)="delete(s.id)">supprimer</button></td></tr>

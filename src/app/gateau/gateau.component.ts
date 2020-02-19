@@ -10,11 +10,14 @@ import {ProduitService} from '../services/produit.service';
 export class GateauComponent implements OnInit {
 
   gateaux: Produit[] = [];
+  quantite: number;
+  ligneCommande: any = {};
 
 
   constructor(private produitService: ProduitService) { }
 
   ngOnInit() {
+    sessionStorage.setItem('panierVide', 'true');
     this.list();
   }
 
@@ -30,6 +33,25 @@ export class GateauComponent implements OnInit {
     this.produitService.delete(id).subscribe(results => {
       this.list();
     });
+  }
+
+  public send(indice: number) {
+    if (sessionStorage.getItem('monPanier')) {
+      sessionStorage.setItem('panierVide', 'false');
+    }
+    this.ligneCommande.indice = indice;
+    this.ligneCommande.quantite = this.quantite;
+    this.ligneCommande.produit = this.gateaux[indice];
+    if (sessionStorage.getItem('panierVide') === 'true') {
+      const monPanier: Array<any> = new Array();
+      monPanier.push(this.ligneCommande);
+      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+      sessionStorage.setItem('panierVide', 'false');
+    } else {
+      const monPanier: Array<any> = JSON.parse(sessionStorage.getItem('monPanier'));
+      monPanier.push(this.ligneCommande);
+      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+    }
   }
 
 
