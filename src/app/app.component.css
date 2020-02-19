@@ -1,3 +1,9 @@
+body
+{
+  background-color: #fffef0;
+  min-height: 1000px;
+}
+
 #logo
 {
   width: 130px;
@@ -30,6 +36,11 @@ li{
 }
 
 #dropdownMenuClient {
+  margin-top: 35px;
+  margin-left: 60px;
+}
+
+#dropdownMenuAdmin {
   margin-top: 35px;
   margin-left: 60px;
 }
