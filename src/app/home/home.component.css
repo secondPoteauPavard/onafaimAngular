@@ -6,7 +6,12 @@ h1{
 
 #home{
   margin-left: 580px;
+  text-align: center;
   margin-top: 35px;
   width: 750px ;
   height: 562px;
 }
+
+/*#off{
+  visibility: hidden;
+}*/
