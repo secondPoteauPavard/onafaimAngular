@@ -3,12 +3,13 @@
   <form>
     <fieldset>
       <div class="form-group">
+        <label>Type produit</label>
         <select id="type" class="form-control">
-          <option value="">Type Produit</option>
-          <option value="Sandwich">Sandwich</option>
-          <option value="Viennoiserie">Viennoiserie</option>
-          <option value="Gateau">Gateau</option>
-          <option value="Boisson">Boisson</option>
+          <option value="">Choisir type</option>
+          <option value="sandwich">Sandwich</option>
+          <option value="viennoiserie">Viennoiserie</option>
+          <option value="gateau">Gateau</option>
+          <option value="boisson">Boisson</option>
         </select>
       </div>
 
@@ -18,8 +19,9 @@
       </div>
 
       <div class="form-group">
+        <label>Taille produit</label>
         <select id="taille" class="form-control">
-          <option value="">Taille Produit</option>
+          <option value="">Choisir taille</option>
           <option value="mini">Mini</option>
           <option value="maxi">Maxi</option>
           <option value="entier">Entier</option>
@@ -40,8 +42,8 @@
         <textarea class="form-control" name="descrip" rows="3" [(ngModel)]="produit.description"></textarea>
       </div>
     </fieldset>
-    <button class="btn btn-outline-primary" (click)="save()">enregistrer</button>-->
-    <a [routerLink]="['/produit']" routerLinkActive="active" class="btn-outline-warning">annuler</a>
+    <button class="btn btn-outline-primary" (click)="save()">enregistrer</button>
+    <a [routerLink]="['/home']" routerLinkActive="active" class="btn-outline-warning">annuler</a>
   </form>
 </div>
 
