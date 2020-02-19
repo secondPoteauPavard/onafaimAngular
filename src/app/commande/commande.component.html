@@ -1,1 +1,29 @@
-<p>commande works!</p>
+<h2>Liste des commandes</h2>
+
+<div class="container">
+<!--  <div>
+    Rechercher par etat: <input [(ngModel)]="filtre">
+  </div>-->
+
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Etat</th>
+      <th>Eval</th>
+      <th></th>
+    </tr>
+
+    <tr *ngFor="let c of commandes, let i = index">
+      <th>{{c.id}}</th>
+      <th>{{c.date}}</th>
+      <th>{{c.etat}}</th>
+      <th>{{c.evaluation}}</th>
+      <th><button [routerLink]="['/editCommande', i]" routerLinkActive="active">Voir</button></th>
+    </tr>
+  </table>
+
+
+
+
+</div>

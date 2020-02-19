@@ -1,6 +1,8 @@
+import {EnumValue} from '@angular/compiler-cli/src/ngtsc/partial_evaluator';
+
 export class Commande {
 
-  constructor(private _panier: object) {
+  constructor(private _panier?: object, public evaluation? : string, public etat?: EnumValue, public date?: Date, public id?: number) {
   }
 
 

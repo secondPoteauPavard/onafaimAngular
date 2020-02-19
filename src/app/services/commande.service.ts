@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Commande} from '../model/commande';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +22,15 @@ export class CommandeService {
     this.options = {headers: this.headers};
   }
 
+  public findAll(): Observable<any> {
+    this.authentication();
+    return this.http.get(this.url, this.options);
+  }
+
+/*
+  public addCommandeClient(c: Commande) {
+    this.listCommande.push(c);
+  }
+*/
 
 }

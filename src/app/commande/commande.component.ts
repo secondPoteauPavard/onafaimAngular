@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Commande} from '../model/commande';
+import {CommandeService} from '../services/commande.service';
 
 @Component({
   selector: 'app-commande',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommandeComponent implements OnInit {
 
-  constructor() { }
+  commandes: Commande[] = [];
+  /*private filtre = '';*/
 
-  ngOnInit(): void {
+  constructor(public listCommande: CommandeService) { }
+
+  ngOnInit() {
+    this.list();
   }
+
+/*  public listeCommande(){
+    return this.commandes.filter(commande => {
+      return commande.etat.enumRef(this.filtre) !==-1;
+    });
+  }*/
+
+  private list() {
+    return this.listCommande.findAll().subscribe(result=> {
+      this.commandes = result;
+    })
+  }
+
 
 }
