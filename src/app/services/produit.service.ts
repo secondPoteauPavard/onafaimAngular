@@ -13,6 +13,7 @@ import {GateauComponent} from '../gateau/gateau.component';
 export class ProduitService {
 
   private url: string = 'http://localhost:8080/onafaim/rest/page/produit';
+  private url2: string = 'http://localhost:8080/onafaim/accueil'
   private headers: HttpHeaders;
   private options: object;
 
@@ -56,7 +57,7 @@ export class ProduitService {
 
   public delete(id: number): Observable<any> {
     this.authentication();
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(`${this.url}/${id}`, this.options);
   }
 
 
@@ -70,7 +71,7 @@ export class ProduitService {
      description: produit.description,
      photo: produit.photo
    };
-    return this.http.post(this.url, this.options);
+    return this.http.post(`${this.url}/${produit.libelle}`, o, this.options);
   }
 
   // public modifierPrix(prix: number): Observable<any>{

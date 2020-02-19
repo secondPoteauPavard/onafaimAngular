@@ -26,7 +26,9 @@ export class SandwichComponent implements OnInit {
   }
 
   public delete(id: number) {
+    console.log(id);
     this.produitService.delete(id).subscribe(results => {
+      console.log(results);
       this.list();
     });
   }
