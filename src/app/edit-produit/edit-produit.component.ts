@@ -3,6 +3,9 @@ import {Produit} from '../model/produit';
 import {ProduitService} from '../services/produit.service';
 import {Router} from '@angular/router';
 
+import {TypeProduitService} from '../services/type-produit.service';
+
+
 @Component({
   selector: 'app-edit-produit',
   templateUrl: './edit-produit.component.html',
@@ -11,6 +14,11 @@ import {Router} from '@angular/router';
 export class EditProduitComponent implements OnInit {
 
   public produit: Produit = new Produit();
+
+
+
+
+  viennoiseries: Produit[] = [];
 
   constructor(private produitService: ProduitService, private router: Router) { }
 
