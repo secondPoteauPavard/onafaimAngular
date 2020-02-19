@@ -17,6 +17,7 @@ import { SandwichComponent } from './sandwich/sandwich.component';
 import { GateauComponent } from './gateau/gateau.component';
 import { EditProduitComponent } from './edit-produit/edit-produit.component';
 import { MonPanierComponent } from './mon-panier/mon-panier.component';
+import { ChoixEnumComponent } from './choix-enum/choix-enum.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MonPanierComponent } from './mon-panier/mon-panier.component';
     SandwichComponent,
     GateauComponent,
     EditProduitComponent,
-    MonPanierComponent
+    MonPanierComponent,
+    ChoixEnumComponent
 
   ],
   imports: [

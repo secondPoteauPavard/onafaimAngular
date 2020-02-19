@@ -5,32 +5,34 @@
       <div class="form-group">
         <label>Type produit</label>
         <select id="type" class="form-control">
-          <option value="choix">Choisir type</option>
-          <option value="sandwich">Sandwich</option>
-          <option value="viennoiserie">Viennoiserie</option>
-          <option value="gateau">Gateau</option>
-          <option value="boisson">Boisson</option>
+          <option selected="selected" value="choix">Choisir type</option>
+          <option selected="selected" value="sandwich">Sandwich</option>
+          <option selected="selected" value="viennoiserie">Viennoiserie</option>
+          <option selected="selected" value="gateau">Gateau</option>
+          <option selected="selected" value="boisson">Boisson</option>
         </select>
       </div>
 
       <div class="form-group">
         <label>Libelle</label>
-        <input class="form-control" name="libelle" [(ngModel)]="produit.libelle" placeholder="croissant">
+        <input class="form-control" name="libelle" [(ngModel)]="produit.libelle" placeholder="saisir nom produit">
       </div>
 
       <div class="form-group">
         <label>Taille produit</label>
         <select id="taille" class="form-control">
           <option value="">Choisir taille</option>
-          <option value="mini">Mini</option>
-          <option value="maxi">Maxi</option>
-          <option value="entier">Entier</option>
-          <option value="demi">Demi</option>
-          <option value="grand">Grand</option>
-          <option value="petit">Petit</option>
-          <option value="une_part">Une part</option>
+          <option selected="selected" value="mini">Mini</option>
+          <option selected="selected" value="maxi">Maxi</option>
+          <option selected="selected" value="entier">Entier</option>
+          <option selected="selected" value="demi">Demi</option>
+          <option selected="selected" value="grand">Grand</option>
+          <option selected="selected" value="petit">Petit</option>
+          <option selected="selected" value="une_part">Une part</option>
         </select>
       </div>
+
+
 
       <div class="form-group">
         <label>Prix</label>

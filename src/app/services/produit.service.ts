@@ -63,7 +63,7 @@ export class ProduitService {
 
   public insert(produit: Produit): Observable<any>{
     this.authentication();
-    const o: object = {
+    const prod: object = {
      libelle: produit.libelle,
      taille: produit.taille,
      prix: produit.prix,
@@ -71,7 +71,8 @@ export class ProduitService {
      description: produit.description,
      photo: produit.photo
    };
-    return this.http.post(this.url2, o, this.options);
+    console.log(JSON.stringify(produit) + ' nouveau produit');
+    return this.http.post(this.url, prod, this.options);
   }
 
   // public modifierPrix(prix: number): Observable<any>{

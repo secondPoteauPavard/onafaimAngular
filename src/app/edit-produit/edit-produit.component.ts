@@ -19,7 +19,7 @@ export class EditProduitComponent implements OnInit {
 
   public save() {
     this.produitService.insert(this.produit).subscribe(result =>{
-      this.router.navigate(['/produit/:add']);
+      this.router.navigate(['/home']);
     });
   }
 
