@@ -9,7 +9,6 @@ import {ProduitService} from '../services/produit.service';
 export class MonPanierComponent implements OnInit {
 
   monPanierlist = [];
-  monPanierAffichage = [];
 
   constructor(private produitService: ProduitService) { }
 
@@ -17,16 +16,23 @@ export class MonPanierComponent implements OnInit {
     this.listProduit();
   }
 
-  // private listProduit() {
-  //   console.log(sessionStorage.getItem('monPanier'));
-  //   this.monPanierlist = JSON.parse(sessionStorage.getItem('monPanier'));
-  //   console.log(this.monPanierlist);
-  // }
-
   private listProduit() {
-    console.log(sessionStorage.getItem('monPanier'));
     this.monPanierlist = JSON.parse(sessionStorage.getItem('monPanier'));
-    console.log(this.monPanierlist);
+  }
+
+  deleteLine(index: number) {
+    this.monPanierlist.splice(index, 1);
+    sessionStorage.setItem('monPanier', JSON.stringify(this.monPanierlist));
+  }
+
+
+  validerPanier() {
+  }
+
+  abandonnerPanier() {
+    this.monPanierlist = [];
+    sessionStorage.removeItem('monPanier');
+    sessionStorage.setItem('panierVide', 'false');
   }
 
 

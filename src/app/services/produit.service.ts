@@ -13,13 +13,13 @@ import {GateauComponent} from '../gateau/gateau.component';
 export class ProduitService {
 
   private url: string = 'http://localhost:8080/onafaim/rest/page/produit';
+  private url2: string = 'http://localhost:8080/onafaim/accueil'
   private headers: HttpHeaders;
   private options: object;
 
   constructor(private http: HttpClient) { }
 
   private authentication(){
-    console.log(sessionStorage.getItem('user'));
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Basic ' + sessionStorage.getItem('user')
@@ -30,6 +30,12 @@ export class ProduitService {
   public findAll(): Observable<any>{
     this.authentication();
     return this.http.get(this.url, this.options);
+  }
+
+  public findById(id: number): Observable<any>{
+    this.authentication();
+    id = id + 1;
+    return this.http.get(this.url + '/' + id, this.options);
   }
 
 
@@ -51,7 +57,7 @@ export class ProduitService {
 
   public delete(id: number): Observable<any> {
     this.authentication();
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(`${this.url}/${id}`, this.options);
   }
 
 
@@ -65,7 +71,7 @@ export class ProduitService {
      description: produit.description,
      photo: produit.photo
    };
-    return this.http.post(this.url, this.options);
+    return this.http.post(`${this.url}/${produit.libelle}`, o, this.options);
   }
 
   // public modifierPrix(prix: number): Observable<any>{
