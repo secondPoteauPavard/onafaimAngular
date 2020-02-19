@@ -13,29 +13,29 @@ export class MonPanierComponent implements OnInit {
   monPanierlist = [];
   prixTotal: number;
 
+
   constructor(private produitService: ProduitService, private panierService: PanierService) { }
 
   ngOnInit(): void {
     this.listProduit();
-    this.prixTotal = 0;
-    this.monPanierlist.forEach(element => {
-      this.prixTotal = this.prixTotal + (element.produit.prix) * (element.quantite);
-    });
+    this.updatePrixTotal();
   }
+
 
   private listProduit() {
     this.monPanierlist = JSON.parse(sessionStorage.getItem('monPanier'));
-    console.log(this.monPanierlist);
   }
 
   deleteLine(index: number) {
     this.monPanierlist.splice(index, 1);
     sessionStorage.setItem('monPanier', JSON.stringify(this.monPanierlist));
+    this.updatePrixTotal();
   }
 
 
   validerPanier() {
-    this.panierService.EnregistrerEnBase();
+    this.panierService.EnregistrerCommandeEnBase(this.monPanierlist);
+    this.panierService.EnregistrerLigneCommandeEnBase(this.monPanierlist);
     this.abandonnerPanier();
   }
 
@@ -43,8 +43,16 @@ export class MonPanierComponent implements OnInit {
     this.monPanierlist = [];
     sessionStorage.removeItem('monPanier');
     sessionStorage.setItem('panierVide', 'false');
+    this.updatePrixTotal();
   }
 
-
+  updatePrixTotal() {
+    this.prixTotal = 0;
+    if (this.monPanierlist) {
+      this.monPanierlist.forEach(element => {
+        this.prixTotal = this.prixTotal + (element.produit.prix) * (element.quantite);
+      });
+    }
+  }
 
 }

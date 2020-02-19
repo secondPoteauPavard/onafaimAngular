@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('user', btoa(`${this.user.email}:${this.user.password}`));
       sessionStorage.setItem('token', this.user.email);
       sessionStorage.setItem('role', this.user.role);
-      console.log(this.user);
+      sessionStorage.setItem('id', this.user.id);
       this.router.navigate(['/home']);
     }, error => {
       this.erreur = true;
