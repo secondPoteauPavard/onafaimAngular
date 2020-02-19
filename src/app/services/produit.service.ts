@@ -22,7 +22,7 @@ export class ProduitService {
   private authentication(){
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + sessionStorage.getItem('user')
+      'Authorization': 'Basic ' + btoa('system:system')
     });
     this.options = {headers: this.headers};
   }
