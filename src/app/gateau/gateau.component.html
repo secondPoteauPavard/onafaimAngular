@@ -3,7 +3,7 @@
   <h2>Liste des gâteaux</h2>
 
   <div class="row">
-    <div *ngFor="let g of gateaux">
+    <div *ngFor="let g of gateaux; let i=index">
       <div class="crew col-lg-3">
         <table>
           <tr><th [attr.colspan]="g.libelle.length">{{g.libelle}}</th></tr>
@@ -12,8 +12,8 @@
           <tr>
             <td>{{g.taille}}</td>
             <td>{{g.prix}}</td>
-            <td><input class="champ" type="number"></td>
-            <td><a href="" class="btn btn-outline-success"> OK </a></td>
+            <td><input class="champ" type="number" [(ngModel)]="quantite"></td>
+            <td><a class="btn btn-outline-success" (click)="send(i)"> OK </a></td>
           </tr>
           <!--          <tr><button class="btn-outline-primary" (click)="update(v.prix)">modifier</button></tr>-->
           <tr><td><button class="btn-outline-primary" (click)="delete(g.id)">supprimer</button></td></tr>

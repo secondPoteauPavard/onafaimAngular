@@ -52,19 +52,17 @@ export class ViennoiserieComponent implements OnInit {
     }
     this.ligneCommande.indice = indice;
     this.ligneCommande.quantite = this.quantite;
-    this.produitService.findById(indice).subscribe(results => {
-      this.ligneCommande.produit = results;
-      if (sessionStorage.getItem('panierVide') === 'true') {
-        const monPanier: Array<any> = new Array();
-        monPanier.push(this.ligneCommande);
-        sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
-        sessionStorage.setItem('panierVide', 'false');
-      } else {
-        const monPanier: Array<any> = JSON.parse(sessionStorage.getItem('monPanier'));
-        monPanier.push(this.ligneCommande);
-        sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
-      }
-    });
+    this.ligneCommande.produit = this.viennoiseries[indice];
+    if (sessionStorage.getItem('panierVide') === 'true') {
+      const monPanier: Array<any> = new Array();
+      monPanier.push(this.ligneCommande);
+      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+      sessionStorage.setItem('panierVide', 'false');
+    } else {
+      const monPanier: Array<any> = JSON.parse(sessionStorage.getItem('monPanier'));
+      monPanier.push(this.ligneCommande);
+      sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
+    }
   }
 
 
