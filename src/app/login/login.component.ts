@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   send() {
     this.loginService.login(this.user).subscribe(result => {
-      this.user=result;
+      this.user = result;
       sessionStorage.setItem('user', btoa(`${this.user.email}:${this.user.password}`));
       sessionStorage.setItem('token', this.user.email);
       sessionStorage.setItem('role', this.user.role);
