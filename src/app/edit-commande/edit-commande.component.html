@@ -1,1 +1,16 @@
-<p>edit-commande works!</p>
+<div class="container">
+  <p>Ma commande</p>
+
+  <table class="table">
+    <tr>
+      <td>{{commande.id}}</td>
+      <td>{{commande.date}}</td>
+      <td>{{commande.etat}}</td>
+      <td>{{commande.evaluation}}</td>
+      <td><button (click)="validerLaCommande()" class="btn btn-outline-success">Valider la commande</button></td>
+    </tr>
+  </table>
+  <br><br>
+  <button [routerLink]="['/listCommande']" routerLinkActive="active">Retour à la liste des commandes</button>
+</div>
+

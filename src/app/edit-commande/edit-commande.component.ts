@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Commande} from '../model/commande';
 import {CommandeService} from '../services/commande.service';
+import {EnumValue} from '@angular/compiler-cli/src/ngtsc/partial_evaluator';
+import {TailleService} from '../services/taille.service';
+import {EtatCommandeService} from '../services/etat-commande.service';
 
 @Component({
   selector: 'app-edit-commande',
@@ -12,21 +15,31 @@ export class EditCommandeComponent implements OnInit {
 
   commande: Commande;
   private index: number;
+  public commandeEtat = [];
 
-  constructor(public commandeService: CommandeService, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe(params => {
-      if (params.index) {
-        this.index = params.index;
-      }
+
+  constructor(public commandeService: CommandeService, private etatCommandeService: EtatCommandeService) {
+    this.etatCommandeService.findAll().subscribe(result => {
+      this.commandeEtat = result;
     });
   }
 
   ngOnInit(): void {
+    this.getCommandeAVoir();
   }
 
-  private getCommandeAVoir() {
-    this.commandeService.findById(this.index).subscribe(result => {
-      this.commande = result;
+  getCommandeAVoir() {
+    if (sessionStorage.getItem('indexCommande')) {
+      this.commandeService.findById(JSON.parse(sessionStorage.getItem('indexCommande'))).subscribe(result => {
+        this.commande = result;
+      });
+    }
+  }
+
+   validerLaCommande() {
+    this.commande.etat = this.commandeEtat[0];
+    this.commandeService.save(this.commande).subscribe(result => {
+      console.log(result);
     });
   }
 

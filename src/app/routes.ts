@@ -29,7 +29,7 @@ export const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'produit/add', component: EditProduitComponent},
   {path: 'listCommande', component: CommandeComponent},
-  {path: 'editCommande/:index', component: EditCommandeComponent},
+  {path: 'editCommande', component: EditCommandeComponent},
 
 //   {path: 'parametreClient/:id', component: ParametreClientComponent},
    {path: '', redirectTo: '/home', pathMatch: 'full'},

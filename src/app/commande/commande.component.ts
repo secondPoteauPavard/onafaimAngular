@@ -30,5 +30,9 @@ export class CommandeComponent implements OnInit {
     });
   }
 
+  stockerIdCommandeAModifier(index) {
+    sessionStorage.setItem('indexCommande', JSON.stringify(this.commandes[index].id));
+  }
+
 
 }

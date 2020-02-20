@@ -19,7 +19,7 @@
       <th>{{c.date}}</th>
       <th>{{c.etat}}</th>
       <th>{{c.evaluation}}</th>
-      <th><button [routerLink]="['/editCommande', i]" routerLinkActive="active">Voir</button></th>
+      <th><button (click)="stockerIdCommandeAModifier(i)" [routerLink]="['/editCommande']" routerLinkActive="active">Voir</button></th>
     </tr>
   </table>
 
