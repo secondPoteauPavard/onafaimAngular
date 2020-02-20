@@ -15,16 +15,20 @@
           <tr>
             <td id="taille">{{v.taille}}</td>
             <td id="prix">{{v.prix}}€</td>
-            <ng-container *ngIf='role== "ROLE_CLIENT" || !role'>
+            <ng-container *ngIf='role== "ROLE_CLIENT"'>
               <td><input class="champ" type="number" [(ngModel)]="quantite" min="1"></td>
               <td><a class="btn btn-light" id="btnOk" (click)="send(i)"> OK </a></td>
+            </ng-container>
+            <ng-container *ngIf='role!= "ROLE_CLIENT"'>
+              <td></td>
+              <td></td>
             </ng-container>
           </tr>
 
           <tr>
             <ng-container *ngIf='role== "ROLE_ADMIN"'>
-              <td><button class="btn btn-light" (click)="update(v.prix)">modifier</button></td>
-              <td><button class="btn btn-danger" (click)="delete(v.id)">supprimer</button></td>
+              <td colspan="2"><button class="btn btn-light" (click)="update(v.prix)">modifier</button></td>
+              <td colspan="2"><button class="btn btn-danger" (click)="delete(v.id)">supprimer</button></td>
             </ng-container>
           </tr>
         </table>

@@ -3,7 +3,7 @@
 <br>
 
 <div id="form" class="container">
-    <form class="form-group">
+    <div class="form-group">
       Nom<br>
       <input [(ngModel)]="compte.nom" placeholder="Saisir nom"><br><br>
       Prenom<br>
@@ -14,11 +14,11 @@
       <input [(ngModel)]="compte.email" placeholder="Saisir email"><br><br>
       Password<br>
       <input type="password" [(ngModel)]="compte.password" placeholder="Saisir password"><br><br>
-    </form>
+    </div>
 
 
   <div class="form-group">
-    <button id="btnSave" class="btn btn-success" (click)="inscription()">S'inscrirer</button>
+    <button id="btnSave" class="btn btn-success" (click)="inscription()">S'inscrire</button>
     <button class="btn btn-warning" [routerLink]="['/home']" routerLinkActive="active">Annuler</button>
   </div>
 

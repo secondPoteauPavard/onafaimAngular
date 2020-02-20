@@ -8,24 +8,28 @@
       <div class="crew col-lg-3">
         <table class="table table-borderless">
           <tr id="libelle">
-            <th [attr.colspan]="g.libelle.length">{{g.libelle}}</th>
+            <th colspan="4">{{g.libelle}}</th>
           </tr>
           <!--<tr><td>{{g.photo}}</td></tr>-->
           <tr>
-            <td colspan="2">{{g.description}}</td></tr>
+            <td colspan="4">{{g.description}}</td></tr>
           <tr>
             <td id="taille">{{g.taille}}</td>
             <td id="prix">{{g.prix}}€</td>
-            <ng-container *ngIf='role== "ROLE_CLIENT" || !role'>
+            <ng-container *ngIf='role== "ROLE_CLIENT"'>
               <td><input class="champ" type="number" [(ngModel)]="quantite" min="1"></td>
               <td><a class="btn btn-light" id="btnOk" (click)="send(i)"> OK </a></td>
+            </ng-container>
+            <ng-container *ngIf='role!= "ROLE_CLIENT"'>
+              <td></td>
+              <td></td>
             </ng-container>
           </tr>
 
           <tr>
             <ng-container *ngIf='role== "ROLE_ADMIN"'>
-              <td><button class="btn btn-light" (click)="update(g.prix)">modifier</button></td>
-              <td><button class="btn btn-danger" (click)="delete(g.id)">supprimer</button></td>
+              <td colspan="4"><button class="btn btn-light" (click)="update(g.prix)">modifier</button></td>
+              <td colspan="4"><button class="btn btn-danger" (click)="delete(g.id)">supprimer</button></td>
             </ng-container>
           </tr>
         </table>
