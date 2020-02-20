@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,19 @@ export class AppComponent {
 
   private user = sessionStorage.getItem('user');
 
+  constructor(private router: Router){
+
+  }
+
   get token() {
     return sessionStorage.getItem('token');
   }
 
   get role(){
     return sessionStorage.getItem('role');
+  }
+
+  public home(){
+    this.router.navigate(['/home']);
   }
 }
