@@ -14,6 +14,7 @@ export class PanierService {
   private ligneCommande: any = {};
   private commande: any = {};
 
+
   constructor(private http: HttpClient) { }
 
   private authentication() {
@@ -35,19 +36,24 @@ export class PanierService {
   }*/
 
 
-  public EnregistrerCommandeEnBase(monPanierList) {
+  public EnregistrerCommandeEnBase(): Observable<any> {
     this.authentication();
     this.commande = `{"compte":{"id":${sessionStorage.getItem('id')}}}`;
-    console.log(this.commande);
     return this.http.post('http://localhost:8080/onafaim/commande/save', this.commande, this.options);
   }
 
-  // Comment récupérer l'id de la commande auto généré ci dessus ??   --> A intégrer en dessous
 
-  public EnregistrerLigneCommandeEnBase(monPanierList) {
+  public EnregistrerLigneCommandeEnBase(monPanierList, c) {
     this.authentication();
-    this.ligneCommande = `{"qte": ${monPanierList.qte},"id": {"commande":{"id": 105},"produit": {"id": ${monPanierList.produit.id}}}`;
-    console.log(this.ligneCommande);
-    return this.http.post('http://localhost:8080/onafaim/commande/save', this.ligneCommande, this.options);
+    monPanierList.forEach((item, index) => {
+      this.EnregistrerUneLigne(monPanierList[index].quantite, c.id, monPanierList[index].produit.id).subscribe();
+    });
+    this.authentication();
+    return this.http.get('http://localhost:8080/onafaim/commande/' + c.id, this.options);
+  }
+
+  public EnregistrerUneLigne(quantite: number, idCommande: number, idProduit: number) {
+    this.ligneCommande = `{"qte": ${quantite},"id": {"commande":{"id": ${idCommande}},"produit": {"id": ${idProduit}}}}`;
+    return this.http.post('http://localhost:8080/onafaim/ligneCommande/save', this.ligneCommande, this.options);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProduitService} from '../services/produit.service';
 import {element} from 'protractor';
 import {PanierService} from '../services/panier.service';
+import {Commande} from '../model/commande';
 
 @Component({
   selector: 'app-mon-panier',
@@ -12,6 +13,7 @@ export class MonPanierComponent implements OnInit {
 
   monPanierlist = [];
   prixTotal: number;
+  private commande: any = {};
 
 
   constructor(private produitService: ProduitService, private panierService: PanierService) { }
@@ -34,9 +36,12 @@ export class MonPanierComponent implements OnInit {
 
 
   validerPanier() {
-    this.panierService.EnregistrerCommandeEnBase(this.monPanierlist);
-    this.panierService.EnregistrerLigneCommandeEnBase(this.monPanierlist);
-    this.abandonnerPanier();
+    this.panierService.EnregistrerCommandeEnBase().subscribe(result => {
+      this.commande = result;
+      this.panierService.EnregistrerLigneCommandeEnBase(this.monPanierlist, this.commande).subscribe(result2 => {
+        this.abandonnerPanier();
+      });
+    });
   }
 
   abandonnerPanier() {
