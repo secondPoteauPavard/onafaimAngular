@@ -27,6 +27,11 @@ export class CommandeService {
     return this.http.get(this.url, this.options);
   }
 
+  public findById(i: number): Observable<any> {
+    this.authentication();
+    return this.http.get(this.url + '/' + i, this.options);
+  }
+
 /*
   public addCommandeClient(c: Commande) {
     this.listCommande.push(c);

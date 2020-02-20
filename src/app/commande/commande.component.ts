@@ -25,9 +25,9 @@ export class CommandeComponent implements OnInit {
   }*/
 
   private list() {
-    return this.listCommande.findAll().subscribe(result=> {
+    return this.listCommande.findAll().subscribe(result => {
       this.commandes = result;
-    })
+    });
   }
 
 

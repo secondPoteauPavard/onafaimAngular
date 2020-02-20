@@ -11,6 +11,7 @@ import {MonPanierComponent} from './mon-panier/mon-panier.component';
 import {EditProduitComponent} from './edit-produit/edit-produit.component';
 import {CommandeComponent} from './commande/commande.component';
 import {EditCommandeComponent} from './edit-commande/edit-commande.component';
+import {SuccessComponent} from './success/success.component';
 
 export const routes: Routes = [
    {path: 'home', component: HomeComponent},
@@ -19,6 +20,7 @@ export const routes: Routes = [
    {path: 'gateau', component: GateauComponent},
    {path: 'boisson', component: BoissonComponent},
    {path: 'monPanier', component: MonPanierComponent},
+  {path: 'success', component: SuccessComponent},
 //   {path: 'devis/:id', component: DevisComponent},
 //   {path: 'commande/:id', component: CommandeComponent},
    {path: 'panier', component: PanierComponent},

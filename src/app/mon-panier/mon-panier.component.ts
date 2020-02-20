@@ -3,6 +3,7 @@ import {ProduitService} from '../services/produit.service';
 import {element} from 'protractor';
 import {PanierService} from '../services/panier.service';
 import {Commande} from '../model/commande';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-mon-panier',
@@ -16,7 +17,7 @@ export class MonPanierComponent implements OnInit {
   private commande: any = {};
 
 
-  constructor(private produitService: ProduitService, private panierService: PanierService) { }
+  constructor(private produitService: ProduitService, private panierService: PanierService, private router: Router) { }
 
   ngOnInit(): void {
     this.listProduit();
@@ -40,6 +41,7 @@ export class MonPanierComponent implements OnInit {
       this.commande = result;
       this.panierService.EnregistrerLigneCommandeEnBase(this.monPanierlist, this.commande).subscribe(result2 => {
         this.abandonnerPanier();
+        this.router.navigate(['/success']);
       });
     });
   }
