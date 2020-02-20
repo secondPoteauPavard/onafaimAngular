@@ -1,9 +1,12 @@
-<div class="container">
-  <h3>Ajouter un nouveau produit</h3>
+<h2>Ajouter un produit</h2>
+<hr>
+<br>
+
+<div class="container" style="width: 500px;">
   <form>
     <fieldset>
       <div class="form-group">
-        <label>Type produit</label>
+        <label>Type produit : </label>
         <select name="type" class="form-control" [(ngModel)]="produit.type">
           <option *ngFor="let typ of typesProd" [value]="typ">{{typ}}</option>
         </select>
@@ -11,7 +14,7 @@
 
       <div class="form-group">
         <label>Libelle</label>
-        <input class="form-control" name="libelle" [(ngModel)]="produit.libelle" placeholder="saisir nom produit">
+        <input class="form-control" name="libelle" maxlength="25" [(ngModel)]="produit.libelle" placeholder="Saisir nom produit">
       </div>
 
       <div class="form-group">
@@ -23,10 +26,10 @@
 
       <label>Prix</label>
       <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-label="Amount (to the nearest euro)" name="prix"  [(ngModel)]="produit.prix">
         <div class="input-group-prepend">
           <span class="input-group-text">€</span>
         </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest euro)" name="prix" [(ngModel)]="produit.prix">
       </div>
 
       <label>Photo</label>
@@ -41,8 +44,10 @@
         <textarea class="form-control" name="descrip" rows="3" [(ngModel)]="produit.description"></textarea>
       </div>
     </fieldset>
-    <button class="btn btn-outline-primary" (click)="save()">enregistrer</button>
-    <a [routerLink]="['/home']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
+    <div id="btn">
+      <button class="btn btn-light" id="btnSave" (click)="save()">enregistrer</button>
+      <a class="btn btn-warning" [routerLink]="['/home']" routerLinkActive="active">annuler</a>
+    </div>
   </form>
 </div>
 

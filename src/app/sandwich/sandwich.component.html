@@ -1,22 +1,36 @@
-<div class="container">
-  <a [routerLink]="['/produit','add']">Ajouter Produit</a>
-  <h2>Liste des sandwichs</h2>
+<h2>Liste des sandwichs</h2>
+<hr>
+<br>
 
+<div class="container">
   <div class="row">
     <div *ngFor="let s of sandwichs; let i=index">
-      <div class="crew col-lg-3">
-        <table>
-          <tr><th [attr.colspan]="s.libelle.length">{{s.libelle}}</th></tr>
-          <tr><td>{{s.photo}}</td></tr>
-          <tr><td>{{s.description}}</td></tr>
+      <div class="crew col-lg-3" >
+        <table class="table table-borderless" style="width: 300px">
           <tr>
-            <td>{{s.taille}}</td>
-            <td>{{s.prix}}</td>
-            <td><input class="champ" type="number" [(ngModel)]="quantite"></td>
-            <td><a class="btn btn-outline-success" (click)="send(i)"> OK </a></td>
+            <th id="libelle" colspan="4">{{s.libelle}}</th>
           </tr>
-          <!--          <tr><button class="btn-outline-primary" (click)="update(v.prix)">modifier</button></tr>-->
-          <tr><td><button class="btn-outline-primary" (click)="delete(s.id)">supprimer</button></td></tr>
+          <!--<tr><td>{{s.photo}}</td></tr>-->
+          <tr id="description"><td colspan="4">{{s.description}}</td></tr>
+          <tr>
+            <td id="taille">{{s.taille}}</td>
+            <td id="prix">{{s.prix}}€</td>
+            <ng-container *ngIf='role== "ROLE_CLIENT"'>
+              <td><input class="champ" type="number" [(ngModel)]="quantite" min="1"></td>
+              <td><a class="btn btn-light" id="btnOk" (click)="send(i)"> OK </a></td>
+            </ng-container>
+            <ng-container *ngIf='role!= "ROLE_CLIENT"'>
+              <td></td>
+              <td></td>
+            </ng-container>
+          </tr>
+
+          <tr>
+            <ng-container *ngIf='role== "ROLE_ADMIN"'>
+              <td colspan="2"><button class="btn btn-light" (click)="update(s.prix)">modifier</button></td>
+              <td colspan="2"><button class="btn btn-danger" (click)="delete(s.id)">supprimer</button></td>
+            </ng-container>
+          </tr>
         </table>
       </div>
     </div>

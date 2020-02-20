@@ -23,7 +23,4 @@ export class AppComponent {
     return sessionStorage.getItem('role');
   }
 
-  public home(){
-    this.router.navigate(['/home']);
-  }
 }

@@ -1,4 +1,16 @@
+h2 {
+  text-align: center;
+}
+
 .champ{
   width: 50px;
+  text-align: center;
+}
+
+#btnOk {
+  size: 15px;
+}
+
+#libelle, #taille, #prix {
   text-align: center;
 }

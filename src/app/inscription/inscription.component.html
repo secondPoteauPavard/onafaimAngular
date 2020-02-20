@@ -1,19 +1,24 @@
-<div class="container">
-  <div class="form-group">
-    Nom<br>
-    <input [(ngModel)]="compte.nom" placeholder="Saisir nom"><br><br>
-    Prenom<br>
-    <input [(ngModel)]="compte.prenom" placeholder="Saisir prenom"><br><br>
-    Numero<br>
-    <input [(ngModel)]="compte.numero" placeholder="Saisir numero"><br><br>
-    Email<br>
-    <input [(ngModel)]="compte.email" placeholder="Saisir email"><br><br>
-    Password<br>
-    <input [(ngModel)]="compte.password" placeholder="Saisir password"><br><br>
-  </div>
+<h2>Inscription</h2>
+<hr>
+<br>
+
+<div id="form" class="container">
+    <form class="form-group">
+      Nom<br>
+      <input [(ngModel)]="compte.nom" placeholder="Saisir nom"><br><br>
+      Prenom<br>
+      <input [(ngModel)]="compte.prenom" placeholder="Saisir prenom"><br><br>
+      Numero<br>
+      <input [(ngModel)]="compte.numero" placeholder="Saisir numero"><br><br>
+      Email<br>
+      <input [(ngModel)]="compte.email" placeholder="Saisir email"><br><br>
+      Password<br>
+      <input type="password" [(ngModel)]="compte.password" placeholder="Saisir password"><br><br>
+    </form>
+
 
   <div class="form-group">
-    <button class="btn btn-success" (click)="inscription()">Valider</button>
+    <button id="btnSave" class="btn btn-success" (click)="inscription()">S'inscrirer</button>
     <button class="btn btn-warning" [routerLink]="['/home']" routerLinkActive="active">Annuler</button>
   </div>
 

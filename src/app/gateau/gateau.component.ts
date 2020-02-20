@@ -21,6 +21,10 @@ export class GateauComponent implements OnInit {
     this.list();
   }
 
+  get role(){
+    return sessionStorage.getItem('role');
+  }
+
   private list() {
     this.produitService.findAllByType('gateau').subscribe(results => {
       this.gateaux = results;
@@ -54,5 +58,8 @@ export class GateauComponent implements OnInit {
     }
   }
 
+  public update(indice: number){
+
+  }
 
 }

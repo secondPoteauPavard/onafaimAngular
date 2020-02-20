@@ -1,7 +1,9 @@
-<h1>Récapitulatif de mon panier</h1>
+<h2>Mon panier</h2>
+<hr>
+<br>
 
 <div class="container">
-  <table border>
+  <table class="table table-borderless">
     <tr>
       <th>indice</th>
       <th>libellé</th>
@@ -14,16 +16,16 @@
       <td>{{m.produit.libelle}}</td>
       <td>{{m.quantite}}</td>
       <td>{{m.produit.prix}}</td>
-      <td><button class="btn btn-outline-danger" (click)="deleteLine(i)">Supprimer</button></td>
+      <td><button class="btn btn-danger" (click)="deleteLine(i)">Supprimer</button></td>
     </tr>
   </table>
   <br>
   <div>
-      <p>Total de mon panier : {{prixTotal}}€</p>
+      <p id="Total">Total de mon panier : {{prixTotal}}€</p>
   </div>
   <br>
-  <div>
-    <button class="btn btn-outline-success" (click)="validerPanier()">Valider mon panier</button>
-    <button class="btn btn-outline-danger" (click)="abandonnerPanier()">Abandonner le panier</button>
+  <div id="btn">
+    <button id="btnValider" class="btn btn-success" (click)="validerPanier()">Valider mon panier</button>
+    <button class="btn btn-danger" (click)="abandonnerPanier()">Abandonner le panier</button>
   </div>
 </div>
