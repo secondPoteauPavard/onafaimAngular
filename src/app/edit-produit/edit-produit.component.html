@@ -4,12 +4,8 @@
     <fieldset>
       <div class="form-group">
         <label>Type produit</label>
-        <select id="type" class="form-control">
-          <option selected="selected" value="choix">Choisir type</option>
-          <option selected="selected" value="sandwich">Sandwich</option>
-          <option selected="selected" value="viennoiserie">Viennoiserie</option>
-          <option selected="selected" value="gateau">Gateau</option>
-          <option selected="selected" value="boisson">Boisson</option>
+        <select name="type" class="form-control" [(ngModel)]="produit.type">
+          <option *ngFor="let typ of typesProd" [value]="typ">{{typ}}</option>
         </select>
       </div>
 
@@ -20,38 +16,33 @@
 
       <div class="form-group">
         <label>Taille produit</label>
-        <select id="taille" class="form-control">
-          <option value="">Choisir taille</option>
-          <option selected="selected" value="mini">Mini</option>
-          <option selected="selected" value="maxi">Maxi</option>
-          <option selected="selected" value="entier">Entier</option>
-          <option selected="selected" value="demi">Demi</option>
-          <option selected="selected" value="grand">Grand</option>
-          <option selected="selected" value="petit">Petit</option>
-          <option selected="selected" value="une_part">Une part</option>
+        <select name="taille" class="form-control" [(ngModel)]="produit.taille">
+          <option *ngFor="let taille of tailles" [value]="taille">{{taille}}</option>
         </select>
       </div>
 
-
-
-      <div class="form-group">
-        <label>Prix</label>
-        <input class="form-control" name="prix" [(ngModel)]="produit.prix">
+      <label>Prix</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">€</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest euro)" name="prix" [(ngModel)]="produit.prix">
       </div>
 
+      <label>Photo</label>
       <div class="custom-file">
-        <label>Photo</label><br/>
-        <input type="file" class="custom-file-input" id="hFichier" name="hFichier" lang="fr" accept=".jpg,.jpeg,.gif,.png" />
-        <label class="custom-file-label" for="hFichier">Sélectionner un fichier</label>
+        <input type="file" class="custom-file-input" id="photo" name="Fichier" lang="fr" accept=".jpg,.jpeg,.gif,.png" />
+        <label class="custom-file-label" for="photo">Selectionner un fichier</label>
       </div>
-
+      <br/>
+      <br/>
       <div class="form-group">
         <label>Description</label><br/>
         <textarea class="form-control" name="descrip" rows="3" [(ngModel)]="produit.description"></textarea>
       </div>
     </fieldset>
     <button class="btn btn-outline-primary" (click)="save()">enregistrer</button>
-    <a [routerLink]="['/home']" routerLinkActive="active" class="btn-outline-warning">annuler</a>
+    <a [routerLink]="['/home']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
   </form>
 </div>
 
