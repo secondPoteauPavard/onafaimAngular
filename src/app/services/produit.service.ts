@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Produit} from '../model/produit';
@@ -13,13 +13,15 @@ import {GateauComponent} from '../gateau/gateau.component';
 export class ProduitService {
 
   private url: string = 'http://localhost:8080/onafaim/rest/page/produit';
-  private url2: string = 'http://localhost:8080/onafaim/rest/page/produit/editProduit'
+  private url2: string = 'http://localhost:8080/onafaim/rest/page/produit/editProduit';
   private headers: HttpHeaders;
   private options: object;
 
-  constructor(private http: HttpClient) { }
 
-  private authentication(){
+  constructor(private http: HttpClient) {
+  }
+
+  private authentication() {
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Basic ' + btoa('system:system')
@@ -27,12 +29,12 @@ export class ProduitService {
     this.options = {headers: this.headers};
   }
 
-  public findAll(): Observable<any>{
+  public findAll(): Observable<any> {
     this.authentication();
     return this.http.get(this.url, this.options);
   }
 
-  public findById(id: number): Observable<any>{
+  public findById(id: number): Observable<any> {
     this.authentication();
     id = id + 1;
     return this.http.get(this.url + '/' + id, this.options);
@@ -43,13 +45,16 @@ export class ProduitService {
     this.authentication();
     if (type === 'viennoiserie') {
       return this.http.get(this.url + '/' + type, this.options);
-    };
+    }
+    ;
     if (type === 'sandwich') {
       return this.http.get(this.url + '/' + type, this.options);
-    };
+    }
+    ;
     if (type === 'boisson') {
       return this.http.get(this.url + '/' + type, this.options);
-    };
+    }
+    ;
     if (type === 'gateau') {
       return this.http.get(this.url + '/' + type, this.options);
     }
@@ -61,17 +66,17 @@ export class ProduitService {
   }
 
 
-  public insert(produit: Produit): Observable<any>{
+  public insert(produit: Produit): Observable<any> {
     this.authentication();
     const prod: object = {
-     libelle: produit.libelle,
-     taille: produit.taille,
-     prix: produit.prix,
-     type: produit.type,
-     description: produit.description,
-     photo: produit.photo
-   };
-    console.log(JSON.stringify(produit) + ' nouveau produit');
+      libelle: produit.libelle,
+      taille: produit.taille,
+      prix: produit.prix,
+      type: produit.type,
+      description: produit.description,
+      photo: produit.photo
+    };
+    console.log(JSON.stringify(produit) + ' nouveau produit et il en manque');
     return this.http.post(this.url, prod, this.options);
   }
 
@@ -79,7 +84,6 @@ export class ProduitService {
   //   this.authentication();
   //   return this.http.post(this.url, this.options);
   // }
-
 
 
 }
