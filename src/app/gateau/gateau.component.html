@@ -1,22 +1,33 @@
-<div class="container">
-  <a [routerLink]="['/produit','add']">Ajouter Produit</a>
-  <h2>Liste des gâteaux</h2>
+<h2>Liste des gâteaux</h2>
+<hr>
+<br>
 
+<div class="container">
   <div class="row">
     <div *ngFor="let g of gateaux; let i=index">
       <div class="crew col-lg-3">
-        <table>
-          <tr><th [attr.colspan]="g.libelle.length">{{g.libelle}}</th></tr>
-          <tr><td>{{g.photo}}</td></tr>
-          <tr><td>{{g.description}}</td></tr>
-          <tr>
-            <td>{{g.taille}}</td>
-            <td>{{g.prix}}</td>
-            <td><input class="champ" type="number" [(ngModel)]="quantite"></td>
-            <td><a class="btn btn-outline-success" (click)="send(i)"> OK </a></td>
+        <table class="table table-borderless">
+          <tr id="libelle">
+            <th [attr.colspan]="g.libelle.length">{{g.libelle}}</th>
           </tr>
-          <!--          <tr><button class="btn-outline-primary" (click)="update(v.prix)">modifier</button></tr>-->
-          <tr><td><button class="btn-outline-primary" (click)="delete(g.id)">supprimer</button></td></tr>
+          <!--<tr><td>{{g.photo}}</td></tr>-->
+          <tr>
+            <td colspan="2">{{g.description}}</td></tr>
+          <tr>
+            <td id="taille">{{g.taille}}</td>
+            <td id="prix">{{g.prix}}€</td>
+            <ng-container *ngIf='role== "ROLE_CLIENT" || !role'>
+              <td><input class="champ" type="number" [(ngModel)]="quantite" min="1"></td>
+              <td><a class="btn btn-light" id="btnOk" (click)="send(i)"> OK </a></td>
+            </ng-container>
+          </tr>
+
+          <tr>
+            <ng-container *ngIf='role== "ROLE_ADMIN"'>
+              <td><button class="btn btn-light" (click)="update(g.prix)">modifier</button></td>
+              <td><button class="btn btn-danger" (click)="delete(g.id)">supprimer</button></td>
+            </ng-container>
+          </tr>
         </table>
       </div>
     </div>

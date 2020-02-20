@@ -2,9 +2,10 @@
 
   <header>
     <div id="header" class="row">
-      <img id="logo" src="../assets/images/logo.png" (click)="home()">
-
-      <div class="col-10">
+      <div class="col-2">
+      <a [routerLink]="['/home']"><img id="logo"  src="../assets/images/logo.png"></a>
+      </div>
+      <div class="col-8">
         <p id="nomSite">On a faim</p>
       </div>
 
@@ -38,6 +39,7 @@
               <a class="dropdown-item" href="#">Gestion clients</a>
               <a class="dropdown-item" [routerLink]="['/listCommande']" routerLinkActive="active">Gestion commandes</a>
               <a class="dropdown-item" href="#">Gestion devis</a>
+              <a class="dropdown-item" [routerLink]="['/produit','add']">Gestion Produit</a>
               <app-logout></app-logout>
             </div>
           </div>
@@ -50,20 +52,27 @@
   </header>
 
   <nav>
-    <ul id="nav">
-      <li><a class="nav-link" style="color: white" [routerLink]="['/home']" routerLinkActive="active">Accueil</a></li>
-      <li><a class="nav-link" style="color: white" [routerLink]="['/sandwich']" routerLinkActive="active">Sandwich</a></li>
-      <li><a class="nav-link" style="color: white" [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiserie</a></li>
-      <li><a class="nav-link" style="color: white" [routerLink]="['/gateau']" routerLinkActive="active">Gateau</a></li>
-      <li><a class="nav-link" style="color: white" [routerLink]="['/boisson']" routerLinkActive="active">Boisson</a></li>
-    </ul>
+    <a class="nav" [routerLink]="['/sandwich']" routerLinkActive="active">Sandiwchs  &#160;  </a>
+    <a class="nav" [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiseries  &#160;  </a>
+    <a class="nav" [routerLink]="['/gateau']" routerLinkActive="active">Gâteaux  &#160;  </a>
+    <a class="nav" [routerLink]="['/boisson']" routerLinkActive="active">Boissons  &#160;  </a>
   </nav>
+
+ <!-- <nav>
+    <ul id="nav">
+      &lt;!&ndash;<li><a class="nav-link" style="color: white" [routerLink]="['/home']" routerLinkActive="active">Accueil</a></li>&ndash;&gt;
+      <li><a class="nav-link" style="color: white" [routerLink]="['/sandwich']" routerLinkActive="active">Sandwichs</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/viennoiserie']" routerLinkActive="active">Viennoiseries</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/gateau']" routerLinkActive="active">Gâteaux</a></li>
+      <li><a class="nav-link" style="color: white" [routerLink]="['/boisson']" routerLinkActive="active">Boissons</a></li>
+    </ul>
+  </nav>-->
 
   <div id="content">
   <router-outlet></router-outlet>
   </div>
 
-  <!--<footer>
+  <footer>
     AJC-INGENIERIE/SOPRA STERIA
-  </footer>-->
+  </footer>
 </body>

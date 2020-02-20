@@ -21,6 +21,10 @@ export class BoissonComponent implements OnInit {
     this.list();
   }
 
+  get role(){
+    return sessionStorage.getItem('role');
+  }
+
   private list() {
     this.produitService.findAllByType('boisson').subscribe(results => {
       this.boissons = results;
@@ -54,5 +58,8 @@ export class BoissonComponent implements OnInit {
     }
   }
 
+  public update(indice: number){
+
+  }
 
 }

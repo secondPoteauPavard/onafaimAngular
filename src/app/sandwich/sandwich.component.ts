@@ -20,6 +20,10 @@ export class SandwichComponent implements OnInit {
     this.list();
   }
 
+  get role(){
+    return sessionStorage.getItem('role');
+  }
+
   private list() {
     this.produitService.findAllByType('sandwich').subscribe(results => {
       this.sandwichs = results;
@@ -55,5 +59,8 @@ export class SandwichComponent implements OnInit {
     }
   }
 
+  public update(indice: number){
+
+  }
 
 }

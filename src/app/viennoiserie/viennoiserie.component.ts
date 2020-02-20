@@ -23,6 +23,10 @@ export class ViennoiserieComponent implements OnInit {
     this.list();
   }
 
+  get role(){
+    return sessionStorage.getItem('role');
+  }
+
   // private list() {
   //   this.produitService.findAll().subscribe(result => {
   //     console.log(result);
@@ -63,6 +67,10 @@ export class ViennoiserieComponent implements OnInit {
       monPanier.push(this.ligneCommande);
       sessionStorage.setItem('monPanier', JSON.stringify(monPanier));
     }
+  }
+
+  public update(indice: number){
+
   }
 
 
