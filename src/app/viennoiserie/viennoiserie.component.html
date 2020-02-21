@@ -6,9 +6,9 @@
   <div class="row">
     <div *ngFor="let v of viennoiseries;let i=index">
       <div class="crew col-lg-3">
-        <table class="table table-borderless">
+        <table class="table table-borderless" style="width: 300px">
           <tr>
-            <th id="libelle" [attr.colspan]="v.libelle.length">{{v.libelle}}</th>
+            <th id="libelle" colspan="4">{{v.libelle}}</th>
           </tr>
           <!--<tr><td>{{v.photo}}</td></tr>-->
           <!-- <tr><td>{{v.description}}</td></tr>-->

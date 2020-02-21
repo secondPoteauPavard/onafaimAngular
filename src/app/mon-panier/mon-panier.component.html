@@ -5,14 +5,12 @@
 <div class="container">
   <table class="table table-borderless">
     <tr>
-      <th>indice</th>
-      <th>libellé</th>
-      <th>quantite</th>
-      <th>prix</th>
+      <th>Libellé</th>
+      <th>Quantite</th>
+      <th>Prix</th>
 
     </tr>
     <tr *ngFor="let m of monPanierlist, let i = index">
-      <td>{{m.indice}}</td>
       <td>{{m.produit.libelle}}</td>
       <td>{{m.quantite}}</td>
       <td>{{m.produit.prix}}</td>

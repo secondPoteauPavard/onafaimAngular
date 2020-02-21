@@ -1,16 +1,27 @@
-<div class="container">
-  <p>Ma commande</p>
+<h2>Liste des commandes</h2>
+<hr>
+<br>
 
-  <table class="table">
+<div class="container">
+
+  <table class="table table-borderless">
+    <tr>
+      <th>N° Commande</th>
+      <th>Date</th>
+      <th>Etat</th>
+      <th>Evaluation</th>
+      <th></th>
+    </tr>
+
     <tr>
       <td>{{commande.id}}</td>
       <td>{{commande.date}}</td>
       <td>{{commande.etat}}</td>
       <td>{{commande.evaluation}}</td>
-      <td><button (click)="validerLaCommande()" class="btn btn-outline-success">Valider la commande</button></td>
+      <td><button (click)="validerLaCommande()" class="btn btn-success">Valider la commande</button></td>
     </tr>
   </table>
   <br><br>
-  <button [routerLink]="['/listCommande']" routerLinkActive="active">Retour à la liste des commandes</button>
+  <button class="btn btn-warning" [routerLink]="['/listCommande']" routerLinkActive="active">Retour à la liste des commandes</button>
 </div>
 
